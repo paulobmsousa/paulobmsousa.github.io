@@ -87,10 +87,18 @@ h1,h2,h3,h4{font-family:var(--serif); font-weight:500; margin:0; letter-spacing:
 p{margin:0 0 1em 0;}
 .mono{font-family:var(--mono);}
 .eyebrow{
-  font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
-  color:var(--text-dim); display:flex; align-items:center; gap:0.6em; margin-bottom:0.9em;
+  font-family:var(--mono); font-size:0.88rem; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--text-muted); display:flex; align-items:center; gap:0.55em; margin-bottom:0.75em;
+  font-weight:600;
 }
-.eyebrow::before{content:''; width:22px; height:1px; background:var(--line-strong); display:inline-block;}
+.eyebrow::before{content:''; width:18px; height:2px; background:var(--blue); display:inline-block; border-radius:1px;}
+.eyebrow .sec-icon{
+  font-size:1.9rem; letter-spacing:0; text-transform:none; color:var(--blue); line-height:1;
+  font-weight:400;
+}
+.subhead .sec-icon{
+  font-size:1.6rem; letter-spacing:0; text-transform:none; margin-right:0.45em; color:var(--blue);
+}
 
 /* ---------- TOP BAR ---------- */
 #topbar{
@@ -143,7 +151,7 @@ p{margin:0 0 1em 0;}
 
 /* ---------- LAYOUT ---------- */
 main{position:relative; z-index:1;}
-section{padding:6.5rem 1.5rem; max-width:var(--maxw); margin:0 auto;}
+section{padding:1.8rem 1.5rem; max-width:var(--maxw); margin:0 auto;}
 .wide{max-width:980px;}
 
 /* ---------- HERO ---------- */
@@ -168,22 +176,26 @@ section{padding:6.5rem 1.5rem; max-width:var(--maxw); margin:0 auto;}
 @keyframes pulseDown{0%,100%{opacity:.3} 50%{opacity:1}}
 
 /* ---------- SECTION HEADERS ---------- */
-.section-head{margin-bottom:2.6rem;}
-.section-head h2{font-size:clamp(1.7rem,4vw,2.4rem);}
-.section-head .lede{color:var(--text-muted); font-size:1.02rem; margin-top:0.8em; max-width:660px;}
-.subhead{font-family:var(--mono); font-size:0.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); margin:2.4rem 0 1rem 0;}
+.section-head{margin-bottom:1rem;}
+.section-head h2{font-size:clamp(1.45rem,3.4vw,2.05rem); line-height:1.2;}
+.section-head .lede{color:var(--text-muted); font-size:1.02rem; margin-top:0.5em; max-width:660px;}
+.subhead{
+  font-family:var(--mono); font-size:0.82rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--blue); margin:1.1rem 0 0.55rem 0; font-weight:600;
+  display:flex; align-items:center; gap:0.35em;
+}
 .subhead:first-of-type{margin-top:0;}
 
 .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
 .reveal.visible{opacity:1; transform:none;}
 
 .idx-badge{
-  font-family:var(--mono); font-size:0.68rem; color:var(--text-dim); text-decoration:none;
-  border:1px solid var(--line-strong); border-radius:6px; padding:0.05em 0.4em; margin-left:0.5em;
+  font-family:var(--mono); font-size:0.72rem; color:var(--text-dim); text-decoration:none;
+  border:1px solid var(--line-strong); border-radius:6px; padding:0.12em 0.45em; margin-left:0.5em;
   vertical-align:middle; transition:color .2s, border-color .2s;
 }
 .idx-badge:hover{ color:var(--blue); border-color:var(--blue-dim); }
-.section-head h2 .idx-badge{ font-size:0.6em; }
+.section-head h2 .idx-badge{ font-size:0.55em; }
 
 /* ---------- STAT CARDS (signals) ---------- */
 .stat-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:1rem; }
@@ -247,8 +259,14 @@ section{padding:6.5rem 1.5rem; max-width:var(--maxw); margin:0 auto;}
 
 /* ---------- CHIP CLOUD ---------- */
 .chip-cloud{ display:flex; flex-wrap:wrap; gap:0.6rem; }
-.chip-cloud span{ font-family:var(--mono); font-size:0.8rem; color:var(--text-muted); border:1px solid var(--line-strong); border-radius:20px; padding:0.4em 0.9em; transition:border-color .2s, color .2s; }
-.chip-cloud span:hover{ border-color:var(--blue); color:var(--blue); }
+.chip-cloud span,
+.chip-cloud a.skill-chip{
+  font-family:var(--mono); font-size:0.8rem; color:var(--text-muted); border:1px solid var(--line-strong);
+  border-radius:20px; padding:0.4em 0.9em; transition:border-color .2s, color .2s;
+  text-decoration:none; display:inline-block;
+}
+.chip-cloud span:hover,
+.chip-cloud a.skill-chip:hover{ border-color:var(--blue); color:var(--blue); }
 .chip-cloud.interests span{ border-color:var(--rose-dim); color:var(--rose); }
 .chip-cloud.interests span:hover{ border-color:var(--rose); }
 
@@ -262,16 +280,24 @@ section{padding:6.5rem 1.5rem; max-width:var(--maxw); margin:0 auto;}
 .callout{ border-left:2px solid var(--amber); padding:1rem 1.4rem; background:rgba(240,183,76,0.06); border-radius:0 10px 10px 0; font-size:0.9rem; color:var(--text-muted); margin-top:1.4rem; }
 .callout b{ color:var(--amber); }
 
-footer{ padding:4rem 1.5rem 6rem 1.5rem; max-width:var(--maxw); margin:0 auto; color:var(--text-dim); font-size:0.82rem; border-top:1px solid var(--line); text-align:center; }
+footer{ padding:2.5rem 1.5rem 4rem 1.5rem; max-width:var(--maxw); margin:0 auto; color:var(--text-dim); font-size:0.82rem; border-top:1px solid var(--line); text-align:center; }
 footer a{ color:var(--blue); text-decoration:none; }
 
 /* ---------- PERSONAL INFO BLOCK ---------- */
-.pinfo-grid{ display:grid; grid-template-columns:140px 1fr; gap:0.6rem 1rem; }
-.pinfo-grid dt{ font-family:var(--mono); font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:.05em; padding:0.3em 0; }
+.pinfo-grid{ display:grid; grid-template-columns:2.4rem 140px 1fr; gap:0.55rem 0.85rem; align-items:center; }
+.pinfo-grid .pinfo-icon{
+  font-size:1.45rem; line-height:1; color:var(--blue); text-align:center;
+  font-style:normal; font-weight:400; letter-spacing:0; text-transform:none;
+}
+.pinfo-grid dt{ font-family:var(--mono); font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:.05em; padding:0.3em 0; margin:0; }
 .pinfo-grid dd{ margin:0; padding:0.3em 0; font-size:0.92rem; color:var(--text); }
 .pinfo-grid dd a{ color:var(--blue); text-decoration:none; border-bottom:1px dotted var(--blue-dim); }
 .pinfo-grid dd a:hover{ border-bottom-style:solid; }
-@media (max-width:560px){ .pinfo-grid{ grid-template-columns:1fr; } .pinfo-grid dt{ padding-bottom:0; } }
+@media (max-width:560px){
+  .pinfo-grid{ grid-template-columns:1.6rem 1fr; }
+  .pinfo-grid dt{ grid-column:2; padding-bottom:0; }
+  .pinfo-grid dd{ grid-column:2; padding-top:0; }
+}
 
 /* ---------- YEAR-CLICKABLE ELEMENTS (link back to career timeline) ---------- */
 .year-clickable{ cursor:pointer; transition:color .2s, border-color .2s; border-bottom:1px dotted transparent; }
@@ -394,16 +420,16 @@ footer a{ color:var(--blue); text-decoration:none; }
 
 <section id="about" class="wide">
   <div class="section-head reveal">
-    <div class="eyebrow">01 — ABOUT</div>
+    <div class="eyebrow"><span class="sec-icon" aria-hidden="true">◈</span> 01 — ABOUT</div>
     <h2 id="sec-1">Profile &amp; career at a glance <a class="idx-badge" href="#" title="Section 1">[1]</a></h2>
     <p class="lede">A career built on the same pattern repeated for two decades: run the technology, then teach it — often in the same year.</p>
   </div>
 
-  <div class="subhead reveal" id="sec-1-1">1.1 Personal information</div>
+  <div class="subhead reveal" id="sec-1-1"><span class="sec-icon" aria-hidden="true">☰</span> 1.1 Personal information</div>
   <div class="reveal" id="personalInfoBlock" style="border:1px solid var(--line); border-radius:14px; background:var(--bg-panel); padding:1.3rem 1.5rem; margin-bottom:1rem;"></div>
 
-  <div class="subhead reveal" id="sec-1-2">1.2 Profile</div>
-  <p class="reveal" style="color:var(--text-muted)">Paulo Benício Melo Sousa is a Brazilian <strong style="color:var(--text)">IT Business Analyst / PMI Certified</strong> professional with a decade of experience as an <strong style="color:var(--text)">Agile Product Owner</strong> — leading workshops, coordinating multi-stakeholder teams, and developing policy and governance frameworks. He is also an experienced <strong style="color:var(--text)">academic lecturer and advisor</strong>, with 20+ years at post-secondary institutions, skilled in managing interdisciplinary, technology-focused programs and stakeholder engagement.</p>
+  <div class="subhead reveal" id="sec-1-2"><span class="sec-icon" aria-hidden="true">◎</span> 1.2 Profile</div>
+  <p class="reveal" style="color:var(--text-muted)">Paulo Benicio Melo de Sousa is a Brazilian <strong style="color:var(--text)">IT Business Analyst / PMI Certified</strong> professional with a decade of experience as an <strong style="color:var(--text)">Agile Product Owner</strong> — leading workshops, coordinating multi-stakeholder teams, and developing policy and governance frameworks. He is also an experienced <strong style="color:var(--text)">academic lecturer and advisor</strong>, with 20+ years at post-secondary institutions, skilled in managing interdisciplinary, technology-focused programs and stakeholder engagement.</p>
   <p class="reveal" style="color:var(--text-muted)">His career splits into two parallel threads: leading technology teams inside Brazil's public sector (culminating in managing government-wide systems for the State of Ceará's Finance Secretariat, teams of up to 50) and teaching computer science most evenings for nearly two decades. Since August 2019 he has taught full-time at Algonquin College in Ottawa — designing courses and labs in Compilers, BI &amp; Data Analytics, Advanced Scripting, and Programming, and facilitating hybrid learning with Brightspace, Zoom, and MS Teams. In 2025 he completed an intensive return to his doctoral subject — quantum computing — including the <a class="card-link" href="https://dev.to/paulobmsousa" target="_blank" rel="noopener">QuCode 21-Days Challenge</a> series on DEV Community.</p>
   <div class="stat-grid reveal">
     <div class="stat-card"><div class="s-num">30+</div><div class="s-label">years in IT &amp; academia</div></div>
@@ -416,7 +442,7 @@ footer a{ color:var(--blue); text-decoration:none; }
     <div class="stat-card"><div class="s-num">2</div><div class="s-label">Algonquin teaching awards (2025–26)</div></div>
   </div>
 
-  <div class="subhead reveal" id="sec-1-3">1.3 Career timeline</div>
+  <div class="subhead reveal" id="sec-1-3"><span class="sec-icon" aria-hidden="true">▤</span> 1.3 Career timeline</div>
   <p class="reveal" style="color:var(--text-muted)">Drag or click along the chart to jump to a year — or click any bar, date badge, or course-table year elsewhere on the page — to see what Paulo was doing at any point since 1991. Day jobs and evening teaching very often overlapped.</p>
   <div class="reveal" style="border:1px solid var(--line); border-radius:14px; background:var(--bg-panel); padding:1.4rem;">
     <div id="ganttReadout"></div>
@@ -432,7 +458,7 @@ footer a{ color:var(--blue); text-decoration:none; }
 
 <section id="work" class="wide">
   <div class="section-head reveal">
-    <div class="eyebrow">02 — WORK EXPERIENCE</div>
+    <div class="eyebrow"><span class="sec-icon" aria-hidden="true">⚙</span> 02 — WORK EXPERIENCE</div>
     <h2 id="sec-2">Twenty years of running the systems <a class="idx-badge" href="#" title="Section 2">[2]</a></h2>
     <p class="lede">Reverse-chronological, from full-time professor in Ottawa back to a Brazilian university network-administration job in 1993.</p>
   </div>
@@ -441,20 +467,20 @@ footer a{ color:var(--blue); text-decoration:none; }
 
 <section id="academic" class="wide">
   <div class="section-head reveal">
-    <div class="eyebrow">03 — ACADEMIC &amp; TEACHING</div>
+    <div class="eyebrow"><span class="sec-icon" aria-hidden="true">🎓</span> 03 — ACADEMIC &amp; TEACHING</div>
     <h2 id="sec-3">Nearly every evening, a classroom <a class="idx-badge" href="#" title="Section 3">[3]</a></h2>
     <p class="lede">While running government IT by day, Paulo taught undergraduate and master's courses most evenings from 2000 to 2019 — often at two or three institutions at once.</p>
   </div>
-  <div class="subhead reveal" id="sec-3-1">3.1 Teaching roles</div>
+  <div class="subhead reveal" id="sec-3-1"><span class="sec-icon" aria-hidden="true">✎</span> 3.1 Teaching roles</div>
   <div id="teachingContainer"></div>
-  <div class="subhead reveal" id="sec-3-2">3.2 Advising &amp; academic boards</div>
+  <div class="subhead reveal" id="sec-3-2"><span class="sec-icon" aria-hidden="true">◇</span> 3.2 Advising &amp; academic boards</div>
   <p class="reveal" style="color:var(--text-muted)">Figures below are from Paulo's <a class="card-link" href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4767978Z2" target="_blank" rel="noopener">Lattes / CNPq</a> record, Brazil's national research curriculum database.</div>
   <div class="stat-grid reveal" id="advisingGrid"></div>
 </section>
 
 <section id="education" class="wide">
   <div class="section-head reveal">
-    <div class="eyebrow">04 — EDUCATION</div>
+    <div class="eyebrow"><span class="sec-icon" aria-hidden="true">📜</span> 04 — EDUCATION</div>
     <h2 id="sec-4">Three degrees, one running theme <a class="idx-badge" href="#" title="Section 4">[4]</a></h2>
     <p class="lede">The doctorate is where quantum computing enters the story — nearly two decades before it became the subject of a 2025 refresher course marathon.</p>
   </div>
@@ -463,25 +489,25 @@ footer a{ color:var(--blue); text-decoration:none; }
 
 <section id="certifications" class="wide">
   <div class="section-head reveal">
-    <div class="eyebrow">05 — CERTIFICATIONS</div>
+    <div class="eyebrow"><span class="sec-icon" aria-hidden="true">🏅</span> 05 — CERTIFICATIONS</div>
     <h2 id="sec-5">Credentials, old and very new <a class="idx-badge" href="#" title="Section 5">[5]</a></h2>
     <p class="lede">Three still-active PMI certifications anchor a long tail of continuing education — most strikingly, eleven separate quantum computing courses completed in 2025 alone.</p>
   </div>
 
-  <div class="subhead reveal" id="sec-5-1">5.1 Professional certifications</div>
+  <div class="subhead reveal" id="sec-5-1"><span class="sec-icon" aria-hidden="true">★</span> 5.1 Professional certifications</div>
   <div class="topic-grid reveal" id="certProfessionalGrid"></div>
 
-  <div class="subhead reveal" id="sec-5-2">5.2 Data science specializations</div>
+  <div class="subhead reveal" id="sec-5-2"><span class="sec-icon" aria-hidden="true">📊</span> 5.2 Data science specializations</div>
   <div class="topic-grid reveal" id="certDataScienceGrid"></div>
 
-  <div class="subhead reveal" id="sec-5-3">5.3 Quantum computing (2025)</div>
+  <div class="subhead reveal" id="sec-5-3"><span class="sec-icon" aria-hidden="true">⚛</span> 5.3 Quantum computing (2025)</div>
   <p class="reveal" style="color:var(--text-muted)">Eleven courses in a single year — the same subject as the 2008 doctorate, revisited with a decade and a half of hardware progress behind it.</p>
   <div class="topic-grid reveal" id="certQuantumGrid"></div>
 
-  <div class="subhead reveal" id="sec-5-4">5.4 AI &amp; cloud</div>
+  <div class="subhead reveal" id="sec-5-4"><span class="sec-icon" aria-hidden="true">☁</span> 5.4 AI &amp; cloud</div>
   <div class="topic-grid reveal" id="certAIGrid"></div>
 
-  <div class="subhead reveal" id="sec-5-5">5.5 Additional short courses (2009–2019)</div>
+  <div class="subhead reveal" id="sec-5-5"><span class="sec-icon" aria-hidden="true">☰</span> 5.5 Additional short courses (2009–2019)</div>
   <p class="reveal" style="color:var(--text-muted)">Mostly Brazil-based project-management and business-intelligence training, plus Algonquin College teaching-compliance modules.</p>
   <div class="course-table-wrap reveal">
     <table class="course-table">
@@ -493,7 +519,7 @@ footer a{ color:var(--blue); text-decoration:none; }
 
 <section id="awards" class="wide">
   <div class="section-head reveal">
-    <div class="eyebrow">06 — AWARDS</div>
+    <div class="eyebrow"><span class="sec-icon" aria-hidden="true">🏆</span> 06 — AWARDS</div>
     <h2 id="sec-6">Three recognitions across a decade <a class="idx-badge" href="#" title="Section 6">[6]</a></h2>
     <p class="lede">One from the Brazilian public sector for a flagship government system, and two from Algonquin College for teaching excellence (2025 and 2026).</p>
   </div>
@@ -502,7 +528,7 @@ footer a{ color:var(--blue); text-decoration:none; }
 
 <section id="publications" class="wide">
   <div class="section-head reveal">
-    <div class="eyebrow">07 — PUBLICATIONS</div>
+    <div class="eyebrow"><span class="sec-icon" aria-hidden="true">📚</span> 07 — PUBLICATIONS</div>
     <h2 id="sec-7p">Selected publications <a class="idx-badge" href="#" title="Section 7">[7]</a></h2>
     <p class="lede">From quantum algorithms and multiplayer quantum games (2005–2008) through applied computational work and a 2026 QAOA-based flight-route optimisation paper.</p>
   </div>
@@ -511,7 +537,7 @@ footer a{ color:var(--blue); text-decoration:none; }
 
 <section id="languages" class="wide">
   <div class="section-head reveal">
-    <div class="eyebrow">08 — LANGUAGES</div>
+    <div class="eyebrow"><span class="sec-icon" aria-hidden="true">💬</span> 08 — LANGUAGES</div>
     <h2 id="sec-7">Portuguese native, working English, growing French <a class="idx-badge" href="#" title="Section 8">[8]</a></h2>
     <p class="lede">CEFR levels below (A1/A2 = basic user, B1/B2 = independent user, C1/C2 = proficient user).</p>
   </div>
@@ -521,12 +547,12 @@ footer a{ color:var(--blue); text-decoration:none; }
 
 <section id="skills" class="wide">
   <div class="section-head reveal">
-    <div class="eyebrow">09 — SKILLS</div>
+    <div class="eyebrow"><span class="sec-icon" aria-hidden="true">⚒</span> 09 — SKILLS</div>
     <h2 id="sec-8">What's actually in the toolbox <a class="idx-badge" href="#" title="Section 9">[9]</a></h2>
     <p class="lede">Technical range built up across research computing, enterprise government systems, and the classroom — plus the digital and organisational skills that keep all of it moving.</p>
   </div>
 
-  <div class="subhead reveal" id="sec-8-1">9.1 Technical skills</div>
+  <div class="subhead reveal" id="sec-8-1"><span class="sec-icon" aria-hidden="true">⌨</span> 9.1 Technical skills</div>
   <div style="margin-bottom:1.4rem;">
     <p class="reveal" style="color:var(--text-muted); margin-bottom:0.5em;"><strong style="color:var(--text-muted)">Programming</strong></p>
     <div class="chip-cloud reveal" id="chipProgramming"></div>
@@ -540,7 +566,7 @@ footer a{ color:var(--blue); text-decoration:none; }
     <div class="chip-cloud reveal" id="chipKnowledge"></div>
   </div>
 
-  <div class="subhead reveal" id="sec-8-2">9.2 Digital &amp; soft skills</div>
+  <div class="subhead reveal" id="sec-8-2"><span class="sec-icon" aria-hidden="true">◇</span> 9.2 Digital &amp; soft skills</div>
   <p class="reveal" style="color:var(--text-muted)">Self-assessed digital skills (Europass framework):</p>
   <div class="reveal" id="digitalSkillsContainer" style="margin-bottom:1.4rem;"></div>
   <div class="topic-grid reveal">
@@ -549,14 +575,14 @@ footer a{ color:var(--blue); text-decoration:none; }
     <div class="topic-card"><h4>Communication</h4><p>General communication in English for technical and management contexts, with basic French/Spanish understanding for computing and science topics.</p></div>
   </div>
 
-  <div class="subhead reveal" id="sec-8-3">9.3 Interests</div>
+  <div class="subhead reveal" id="sec-8-3"><span class="sec-icon" aria-hidden="true">✦</span> 9.3 Interests</div>
   <div class="chip-cloud interests reveal" id="chipInterests"></div>
 </section>
 
 
 <section id="writing" class="wide">
   <div class="section-head reveal">
-    <div class="eyebrow">WRITING &amp; OUTREACH</div>
+    <div class="eyebrow"><span class="sec-icon" aria-hidden="true">✎</span> WRITING &amp; OUTREACH</div>
     <h2>QuCode and ongoing notes <a class="idx-badge" href="#" title="Writing">[W]</a></h2>
     <p class="lede">Public writing that bridges the doctoral quantum work with practical learning — including a 21-day coding challenge on DEV Community.</p>
   </div>
@@ -587,7 +613,7 @@ footer a{ color:var(--blue); text-decoration:none; }
 
 <section id="references" class="wide">
   <div class="section-head reveal">
-    <div class="eyebrow">10 — REFERENCES &amp; LINKS</div>
+    <div class="eyebrow"><span class="sec-icon" aria-hidden="true">🔗</span> 10 — REFERENCES &amp; LINKS</div>
     <h2>Web references mentioned or related <a class="idx-badge" href="#" title="Section 10">[10]</a></h2>
     <p class="lede">Primary professional profiles, institutional sites, credentials, and selected publication venues from the curriculum.</p>
   </div>
@@ -628,7 +654,8 @@ footer a{ color:var(--blue); text-decoration:none; }
 </section>
 
 <footer>
-  Built as a self-contained HTML page from Paulo Sousa's Europass CV (update 2026-08-22). Layout and interaction patterns adapted from a quantum-computing course microsite. Reach out by email or LinkedIn above. Halifax, Aug 22nd 2026.
+  Built as a self-contained HTML page from Paulo Sousa's Europass CV. Layout and interaction patterns adapted from a quantum-computing course microsite. Reach out by email or LinkedIn above.<br>
+  <strong style="color:var(--text-muted);">Last updated:</strong> Sunday, August 23, 2026 · 5:15 PM EDT · Halifax, NS
 </footer>
 
 </main>
@@ -737,15 +764,21 @@ const publicationsData = [
 ];
 
 const personalInfoData = [
- {label:"Full name", value:"Paulo Benício Melo Sousa"},
- {label:"Email", value:"paulo.benicio@gmail.com", link:"mailto:paulo.benicio@gmail.com"},
- {label:"LinkedIn", value:"linkedin.com/in/paulobmsousa", link:"https://www.linkedin.com/in/paulobmsousa/"},
- {label:"Google Site", value:"sites.google.com/view/paulobmsousa", link:"https://sites.google.com/view/paulobmsousa/"},
- {label:"DEV Community", value:"dev.to/paulobmsousa (QuCode)", link:"https://dev.to/paulobmsousa"},
- {label:"ORCID", value:"0000-0003-2599-3558", link:"https://orcid.org/0000-0003-2599-3558"},
- {label:"Google Scholar", value:"scholar.google.ca citations", link:"https://scholar.google.ca/citations?user=QFK7SO8AAAAJ"},
- {label:"Lattes / CNPq", value:"View research curriculum", link:"http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4767978Z2"},
- {label:"Credly badges", value:"credly.com/users/paulo-bms", link:"http://credly.com/users/paulo-bms"},
+ {label:"Full name", value:"Paulo Benicio Melo de Sousa", icon:"👤"},
+ {label:"Email", value:"paulo.benicio@gmail.com", link:"mailto:paulo.benicio@gmail.com", icon:"✉"},
+ {label:"LinkedIn", value:"linkedin.com/in/paulobmsousa", link:"https://www.linkedin.com/in/paulobmsousa/", icon:"⬡"},
+ {label:"LinkedTree", value:"linktr.ee/paulobmsousa", link:"https://linktr.ee/paulobmsousa", icon:"🌐"},
+ {label:"Google Site", value:"sites.google.com/view/paulobmsousa", link:"https://sites.google.com/view/paulobmsousa/", icon:"🌐"},
+ {label:"DEV Community", value:"dev.to/paulobmsousa (QuCode)", link:"https://dev.to/paulobmsousa", icon:"⌨"},
+ {label:"Google Scholar", value:"scholar.google.ca citations", link:"https://scholar.google.ca/citations?user=QFK7SO8AAAAJ", icon:"📚"},
+ {label:"Independent Academy", value:"Independent academy", link:"https://independent.academia.edu/PauloBenicio", icon:"🎓"},
+ {label:"Lattes / CNPq", value:"View research curriculum", link:"http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4767978Z2", icon:"📄"},
+ {label:"Credly badges", value:"credly.com/users/paulo-bms", link:"http://credly.com/users/paulo-bms", icon:"🏅"},
+ {label:"Netlify", value:"Netlify", link:"https://paulobmsousa.netlify.app/", icon:"▲"},
+ {label:"Github Page", value:"Github Page", link:"https://paulobmsousa.github.io/", icon:"⌥"},
+ {label:"ORCID", value:"0000-0003-2599-3558", link:"https://orcid.org/0000-0003-2599-3558", icon:"◎"},
+ {label:"Medium Articles", value:"Medium Articles", link:"https://medium.com/@paulo.benicio", icon:"✎"},
+ {label:"LinkedIn Articles", value:"Linkedin Articles", link:"https://www.linkedin.com/in/paulobmsousa/recent-activity/articles/", icon:"✎"},
 ];
 
 const certProfessional = [
@@ -952,12 +985,13 @@ if(publicationsContainer){
   });
 }
 
-/* personal information block */
+/* personal information block — icon | label | value as 3-column grid */
 const personalInfoBlock = document.getElementById('personalInfoBlock');
 if(personalInfoBlock){
   const rows = personalInfoData.map(p=>{
     const value = p.link ? `<a href="${p.link}" target="_blank" rel="noopener">${p.value}</a>` : p.value;
-    return `<dt>${p.label}</dt><dd>${value}</dd>`;
+    const icon = p.icon || '•';
+    return `<span class="pinfo-icon" aria-hidden="true">${icon}</span><dt>${p.label}</dt><dd>${value}</dd>`;
   }).join('');
   personalInfoBlock.innerHTML = `<dl class="pinfo-grid">${rows}</dl>`;
 }
@@ -1015,15 +1049,19 @@ digitalSkillsData.forEach(s=>{
   digitalSkillsContainer.appendChild(row);
 });
 
-/* chip clouds */
-function renderChips(containerId, data){
+/* chip clouds — technical skills link to #sec-8-1 */
+function renderChips(containerId, data, asSkillLinks){
   const box = document.getElementById(containerId);
-  box.innerHTML = data.map(t=>`<span>${t}</span>`).join('');
+  if(asSkillLinks){
+    box.innerHTML = data.map(t=>`<a class="skill-chip" href="#sec-8-1" title="Jump to Technical skills">${t}</a>`).join('');
+  } else {
+    box.innerHTML = data.map(t=>`<span>${t}</span>`).join('');
+  }
 }
-renderChips('chipProgramming', chipProgrammingData);
-renderChips('chipTools', chipToolsData);
-renderChips('chipKnowledge', chipKnowledgeData);
-renderChips('chipInterests', chipInterestsData);
+renderChips('chipProgramming', chipProgrammingData, true);
+renderChips('chipTools', chipToolsData, true);
+renderChips('chipKnowledge', chipKnowledgeData, true);
+renderChips('chipInterests', chipInterestsData, false);
 
 /* =========================================================
    CAREER GANTT / SCRUBBER TIMELINE
