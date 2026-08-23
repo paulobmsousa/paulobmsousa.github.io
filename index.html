@@ -1,34 +1,1246 @@
 <!DOCTYPE html>
 <html lang="en">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<body>
-		<!--
-		https://github.com/paulobmsousa/paulobmsousa.github.io
-		-->
-		<h1 style="text-align:center;">
-			Wellcome to my GitHub Homepage
-		</h1>
-		<p style="text-align:center;">
-			User Id: <b>paulobmsousa</b>
-		</p>
-		<center>
-			<a href="https://sites.google.com/view/paulobmsousa/home" target="_blank">
-				<img src="images/perfillinkedin.jpg">
-			</a>
-		</center>
-		<p style="text-align:center;">
-			<a href="https://paulobmsousa.github.io/techblog/" target="_top">
-			<img src="images/devcorner1min.jpg">
-			<br>	
-				GitHub Blog
-			</br>
-			</a>
-		</p>
-		<p style="text-align:center;">
-			Contact: 
-			<a href="mailto:paulo.benicio@gmail.com?Subject=Hello%20From%20GitHub" target="_top">
-				paulo.benicio@gmail.com
-			</a>
-		</p>
-	</body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paulo Sousa — IT Project Manager · Academic Lecturer · Quantum Computing Enthusiast</title>
+<script>
+/* Set theme before first paint to avoid a flash of the wrong mode. */
+(function(){
+  try{
+    var saved = localStorage.getItem('ps-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', theme);
+  }catch(e){ document.documentElement.setAttribute('data-theme','dark'); }
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0d16;
+  --bg-panel:#10132472;
+  --bg-panel-solid:#10132a;
+  --bg-panel-2:#161a34;
+  --line: rgba(150,160,220,0.14);
+  --line-strong: rgba(150,160,220,0.28);
+  --blue:#4ea1f2;
+  --blue-dim: rgba(78,161,242,0.35);
+  --teal:#38bdb0;
+  --violet:#9b7bf0;
+  --amber:#f0b74c;
+  --rose:#f7418a;
+  --rose-dim: rgba(247,65,138,0.35);
+  --green:#5fd48a;
+  --orange:#f2884e;
+  --indigo:#7a8cff;
+  --text:#e9e7f6;
+  --text-muted:#9aa0c4;
+  --text-dim:#5d6389;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', system-ui, -apple-system, sans-serif;
+  --mono:'JetBrains Mono', 'SF Mono', monospace;
+  --maxw: 820px;
+  --shadow-soft: rgba(0,0,0,0.4);
+  --inset-bg: rgba(0,0,0,0.15);
+  --topbar-bg: rgba(10,13,22,0.6);
+  --topbar-bg-solid: rgba(10,13,22,0.97);
+  --hover-tint: rgba(255,255,255,0.02);
+}
+/* ---------- LIGHT THEME OVERRIDES ---------- */
+html[data-theme="light"]{
+  --bg:#f6f7fb;
+  --bg-panel:#ffffffb3;
+  --bg-panel-solid:#ffffff;
+  --bg-panel-2:#eef0f7;
+  --line: rgba(30,35,70,0.10);
+  --line-strong: rgba(30,35,70,0.20);
+  --text:#171a2b;
+  --text-muted:#4b5170;
+  --text-dim:#7a8099;
+  --shadow-soft: rgba(60,70,120,0.16);
+  --inset-bg: rgba(30,35,70,0.05);
+  --topbar-bg: rgba(246,247,251,0.75);
+  --topbar-bg-solid: rgba(246,247,251,0.97);
+  --hover-tint: rgba(20,30,60,0.035);
+}
+html[data-theme="light"] body::before{ opacity:0.5; }
+html[data-theme="light"] ::selection{ color:#0d0f1c; }
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth; transition:background-color .3s ease;}
+[id]{ scroll-margin-top: 92px; }
+body{
+  margin:0; background:var(--bg); color:var(--text); font-family:var(--sans);
+  line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  transition:background-color .3s ease, color .3s ease;
+}
+body::before{
+  content:''; position:fixed; inset:0;
+  background:
+    radial-gradient(ellipse 900px 500px at 15% -5%, rgba(78,161,242,0.10), transparent 60%),
+    radial-gradient(ellipse 900px 600px at 90% 15%, rgba(247,65,138,0.07), transparent 60%);
+  pointer-events:none; z-index:0;
+}
+a{color:inherit;}
+h1,h2,h3,h4{font-family:var(--serif); font-weight:500; margin:0; letter-spacing:-0.01em;}
+p{margin:0 0 1em 0;}
+.mono{font-family:var(--mono);}
+.eyebrow{
+  font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--text-dim); display:flex; align-items:center; gap:0.6em; margin-bottom:0.9em;
+}
+.eyebrow::before{content:''; width:22px; height:1px; background:var(--line-strong); display:inline-block;}
+
+/* ---------- TOP BAR ---------- */
+#topbar{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0.9rem 1.5rem; backdrop-filter: blur(10px);
+  background:var(--topbar-bg); border-bottom:1px solid var(--line);
+}
+#topbar .brand{ font-family:var(--serif); font-size:1.02rem; display:flex; align-items:center; gap:0.55em; white-space:nowrap; text-decoration:none; }
+#topbar .brand .dot0{width:9px;height:9px;border-radius:50%;background:var(--blue); box-shadow:0 0 10px var(--blue-dim);}
+#topbar .brand .dot1{width:9px;height:9px;border-radius:50%;background:var(--rose); box-shadow:0 0 10px var(--rose-dim); margin-left:-4px;}
+#navToggle{ display:none; background:none; border:1px solid var(--line-strong); color:var(--text); width:38px; height:38px; border-radius:8px; cursor:pointer; font-size:1rem; flex-shrink:0; }
+#themeToggle{
+  background:none; border:1px solid var(--line-strong); color:var(--text); width:38px; height:38px;
+  border-radius:8px; cursor:pointer; font-size:1rem; flex-shrink:0; margin-left:0.8rem;
+  display:flex; align-items:center; justify-content:center; transition:border-color .2s, transform .2s;
+}
+#themeToggle:hover{ border-color:var(--blue); transform:translateY(-1px); }
+#topbar nav{display:flex; gap:1.2rem; font-size:0.78rem; color:var(--text-muted); overflow-x:auto; scrollbar-width:none;}
+#topbar nav::-webkit-scrollbar{display:none;}
+#topbar nav a{text-decoration:none; transition:color .2s; white-space:nowrap; border-bottom:2px solid transparent; padding-bottom:2px;}
+#topbar nav a:hover, #topbar nav a.active{color:var(--c, var(--blue)); border-bottom-color:var(--c, var(--blue));}
+
+/* ---------- SIDE PROGRESS NAV (fixed size, subsections) ---------- */
+#sidenav{
+  position:fixed; left:1.2rem; top:88px; z-index:90; width:238px; height:calc(100vh - 130px);
+  display:flex; flex-direction:column; background:var(--bg-panel-solid); border:1px solid var(--line-strong);
+  border-radius:16px; box-shadow:0 16px 40px var(--shadow-soft); overflow:hidden;
+}
+#sidenav .sn-scroll{ overflow-y:auto; padding:0.9rem 0.5rem; flex:1; scrollbar-width:thin; scrollbar-color:var(--line-strong) transparent; }
+#sidenav .sn-scroll::-webkit-scrollbar{width:6px;}
+#sidenav .sn-scroll::-webkit-scrollbar-thumb{background:var(--line-strong); border-radius:3px;}
+#sidenav .sn-group{ margin-bottom:0.15rem; }
+#sidenav a{
+  position:relative; display:flex; align-items:center; gap:0.6em; text-decoration:none;
+  color:var(--text-dim); font-family:var(--mono); font-size:0.68rem; letter-spacing:.03em;
+  opacity:0; transition:opacity .3s, background .2s, color .2s; padding:0.42em 0.6em; border-radius:7px;
+  border-left:3px solid transparent; white-space:nowrap;
+}
+#sidenav.show a{opacity:1;}
+#sidenav a.sn-main{ font-size:0.72rem; font-weight:600; letter-spacing:.04em; margin-top:0.3em; }
+#sidenav a.sn-sub{ font-size:0.63rem; padding-left:1.5em; color:var(--text-dim); }
+#sidenav a .node{width:7px; height:7px; border-radius:50%; border:1.5px solid var(--line-strong); flex-shrink:0; transition:all .25s; background:transparent;}
+#sidenav a.sn-sub .node{width:5px; height:5px;}
+#sidenav a:hover{ background:color-mix(in srgb, var(--c, var(--blue)) 12%, transparent); color:var(--text); }
+#sidenav a:hover .node{ border-color:var(--c, var(--blue)); }
+#sidenav a.active{ color:var(--text); background:color-mix(in srgb, var(--c, var(--blue)) 16%, transparent); border-left-color:var(--c, var(--blue)); }
+#sidenav a.active .node{background:var(--c, var(--blue)); border-color:var(--c, var(--blue)); box-shadow:0 0 8px var(--c, var(--blue));}
+@media (max-width: 1150px){ #sidenav{display:none;} }
+
+/* ---------- LAYOUT ---------- */
+main{position:relative; z-index:1;}
+section{padding:6.5rem 1.5rem; max-width:var(--maxw); margin:0 auto;}
+.wide{max-width:980px;}
+
+/* ---------- HERO ---------- */
+#hero{ min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; max-width:900px; padding-top:6rem; }
+#avatar{
+  width:128px; height:128px; border-radius:50%; margin:0 auto 1.6rem auto; display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-size:2.6rem; color:var(--bg); font-weight:600;
+  background:linear-gradient(135deg, var(--blue), var(--rose));
+  box-shadow:0 0 60px rgba(78,161,242,0.25);
+}
+#hero h1{ font-size:clamp(2.4rem, 6vw, 4.4rem); line-height:1.05;
+  background:linear-gradient(100deg, var(--blue) 0%, var(--text) 35%, var(--text) 65%, var(--rose) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+#hero .role{ margin-top:0.6rem; font-family:var(--mono); font-size:1rem; color:var(--text-muted); letter-spacing:.02em; }
+#hero .sub{ margin-top:1.2rem; font-size:1.05rem; color:var(--text-muted); max-width:620px; }
+#hero .chips{ display:flex; gap:0.7rem; flex-wrap:wrap; justify-content:center; margin-top:1.8rem; }
+.chip{ font-family:var(--mono); font-size:0.78rem; color:var(--text-muted); border:1px solid var(--line-strong); border-radius:20px; padding:0.5em 1em; text-decoration:none; transition:border-color .2s, color .2s; display:inline-flex; align-items:center; gap:0.5em; }
+.chip:hover{ border-color:var(--blue); color:var(--blue); }
+.scrolldown{ margin-top:3rem; font-family:var(--mono); font-size:0.7rem; color:var(--text-dim); display:flex; flex-direction:column; align-items:center; gap:0.5em; letter-spacing:.1em; }
+.scrolldown .line{width:1px; height:34px; background:linear-gradient(var(--text-dim), transparent); animation:pulseDown 1.8s ease-in-out infinite;}
+@keyframes pulseDown{0%,100%{opacity:.3} 50%{opacity:1}}
+
+/* ---------- SECTION HEADERS ---------- */
+.section-head{margin-bottom:2.6rem;}
+.section-head h2{font-size:clamp(1.7rem,4vw,2.4rem);}
+.section-head .lede{color:var(--text-muted); font-size:1.02rem; margin-top:0.8em; max-width:660px;}
+.subhead{font-family:var(--mono); font-size:0.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); margin:2.4rem 0 1rem 0;}
+.subhead:first-of-type{margin-top:0;}
+
+.reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
+.reveal.visible{opacity:1; transform:none;}
+
+.idx-badge{
+  font-family:var(--mono); font-size:0.68rem; color:var(--text-dim); text-decoration:none;
+  border:1px solid var(--line-strong); border-radius:6px; padding:0.05em 0.4em; margin-left:0.5em;
+  vertical-align:middle; transition:color .2s, border-color .2s;
+}
+.idx-badge:hover{ color:var(--blue); border-color:var(--blue-dim); }
+.section-head h2 .idx-badge{ font-size:0.6em; }
+
+/* ---------- STAT CARDS (signals) ---------- */
+.stat-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:1rem; }
+.stat-card{ text-align:center; padding:1.4rem 1rem; border:1px solid var(--line); border-radius:14px; background:var(--bg-panel); }
+.stat-card .s-num{ font-family:var(--serif); font-size:2.4rem; color:var(--blue); line-height:1; }
+.stat-card .s-label{ font-size:0.78rem; color:var(--text-muted); margin-top:0.5em; }
+
+/* ---------- ENTRY CARDS (work / teaching / education / awards) ---------- */
+.entry-card{ border:1px solid var(--line); border-radius:16px; margin-bottom:1.3rem; overflow:hidden; background:linear-gradient(180deg, var(--bg-panel-2), var(--bg-panel)); }
+.entry-head{ padding:1.3rem 1.5rem 0.3rem 1.5rem; display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap; }
+.entry-head h3{ font-size:1.18rem; }
+.entry-head .tag{ font-family:var(--mono); font-size:0.68rem; color:var(--blue); border:1px solid var(--blue-dim); padding:0.25em 0.7em; border-radius:20px; white-space:nowrap; }
+.entry-org{ padding:0 1.5rem; color:var(--text-muted); font-size:0.92rem; font-weight:500; }
+.entry-body{ padding:0.5rem 1.5rem 1.3rem 1.5rem; color:var(--text-muted); font-size:0.92rem; }
+.entry-body ul{ margin:0.6em 0 0 1.1em; padding:0; }
+.entry-body li{ margin-bottom:0.35em; }
+.entry-sector{ font-family:var(--mono); font-size:0.7rem; color:var(--text-dim); margin-top:0.7em; display:block; }
+
+/* ---------- GENERIC TOPIC GRID ---------- */
+.topic-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:1rem;}
+.topic-card{border:1px solid var(--line); border-radius:14px; padding:1.3rem; background:var(--bg-panel);}
+.topic-card .plat-dot{width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:0.5em; flex-shrink:0;}
+.topic-card h4{font-size:1.02rem; display:flex; align-items:center; margin-bottom:0.5em;}
+.topic-card .stat{display:flex; justify-content:space-between; gap:1rem; font-family:var(--mono); font-size:0.74rem; color:var(--text-muted); padding:0.3em 0; border-bottom:1px dashed var(--line);}
+.topic-card .stat:last-of-type{border-bottom:none;}
+.topic-card .stat b{color:var(--text); font-weight:500; text-align:right;}
+.topic-card p{font-size:0.85rem; color:var(--text-dim); margin:0.6em 0 0 0;}
+.topic-card p:first-of-type{margin-top:0;}
+.topic-card a.card-link{ color:var(--blue); text-decoration:none; border-bottom:1px dotted var(--blue-dim); font-family:var(--mono); font-size:0.72rem; }
+.topic-card a.card-link:hover{ border-bottom-style:solid; }
+
+/* ---------- GANTT / CAREER TIMELINE ---------- */
+.gantt-chart{ width:100%; height:auto; display:block; cursor:pointer; touch-action:pan-y; }
+.gantt-chart .g-bar{ cursor:pointer; transition:filter .15s, stroke-width .15s; }
+.gantt-chart .g-bar:hover{ filter:brightness(1.3); }
+.gantt-chart .g-bar.active{ filter:brightness(1.45); stroke:var(--text); stroke-width:1.5; }
+#ganttReadout{ font-family:var(--mono); font-size:0.82rem; color:var(--text-muted); min-height:2.6em; margin-bottom:0.6em; line-height:1.5; }
+#ganttReadout b{ color:var(--blue); }
+#ganttControls{ display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-top:0.8rem; }
+.btn{ font-family:var(--mono); font-size:0.75rem; letter-spacing:.04em; color:var(--bg); background:var(--blue); border:none; padding:0.55em 1.1em; border-radius:20px; cursor:pointer; transition:transform .15s, box-shadow .15s; }
+.btn:hover{ transform:translateY(-1px); box-shadow:0 6px 18px rgba(78,161,242,.25); }
+.btn.secondary{ background:transparent; border:1px solid var(--line-strong); color:var(--text-muted); }
+.gantt-legend{ display:flex; gap:1.4rem; flex-wrap:wrap; margin-top:0.8rem; font-family:var(--mono); font-size:0.72rem; color:var(--text-muted); }
+.gantt-legend-swatch{ width:10px; height:10px; border-radius:3px; display:inline-block; margin-right:0.5em; }
+
+/* ---------- LANGUAGE BARS ---------- */
+.lang-block{ margin-bottom:1.6rem; }
+.lang-block h4{ font-size:1.05rem; margin-bottom:0.7em; }
+.lang-row{ display:grid; grid-template-columns:140px 1fr 40px; align-items:center; gap:0.8rem; margin-bottom:0.5em; }
+.lang-row span:first-child{ font-family:var(--mono); font-size:0.76rem; color:var(--text-muted); }
+.lang-bar-track{ height:8px; border-radius:4px; background:var(--line); overflow:hidden; }
+.lang-bar-fill{ height:100%; border-radius:4px; background:linear-gradient(90deg, var(--blue), var(--teal)); width:0; transition:width 1.2s cubic-bezier(.2,.8,.2,1); }
+.lang-row .lvl{ font-family:var(--mono); font-size:0.74rem; color:var(--text-dim); text-align:right; }
+
+/* ---------- SKILL METER (digital skills) ---------- */
+.meter-row{ display:grid; grid-template-columns:170px 1fr 90px; align-items:center; gap:0.8rem; margin-bottom:0.6em; }
+.meter-row span:first-child{ font-size:0.85rem; color:var(--text-muted); }
+.meter-track{ height:8px; border-radius:4px; background:var(--line); overflow:hidden; }
+.meter-fill{ height:100%; border-radius:4px; width:0; transition:width 1.2s cubic-bezier(.2,.8,.2,1); }
+.meter-row .lvl{ font-family:var(--mono); font-size:0.72rem; color:var(--text-dim); }
+
+/* ---------- CHIP CLOUD ---------- */
+.chip-cloud{ display:flex; flex-wrap:wrap; gap:0.6rem; }
+.chip-cloud span{ font-family:var(--mono); font-size:0.8rem; color:var(--text-muted); border:1px solid var(--line-strong); border-radius:20px; padding:0.4em 0.9em; transition:border-color .2s, color .2s; }
+.chip-cloud span:hover{ border-color:var(--blue); color:var(--blue); }
+.chip-cloud.interests span{ border-color:var(--rose-dim); color:var(--rose); }
+.chip-cloud.interests span:hover{ border-color:var(--rose); }
+
+/* ---------- COURSE TABLE ---------- */
+.course-table{ width:100%; border-collapse:collapse; font-size:0.82rem; }
+.course-table th{ text-align:left; font-family:var(--mono); font-size:0.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text-dim); padding:0.5em 0.8em; border-bottom:1px solid var(--line-strong); }
+.course-table td{ padding:0.55em 0.8em; border-bottom:1px solid var(--line); color:var(--text-muted); }
+.course-table tr:hover td{ color:var(--text); background:var(--hover-tint); }
+.course-table-wrap{ max-height:360px; overflow-y:auto; border:1px solid var(--line); border-radius:12px; }
+
+.callout{ border-left:2px solid var(--amber); padding:1rem 1.4rem; background:rgba(240,183,76,0.06); border-radius:0 10px 10px 0; font-size:0.9rem; color:var(--text-muted); margin-top:1.4rem; }
+.callout b{ color:var(--amber); }
+
+footer{ padding:4rem 1.5rem 6rem 1.5rem; max-width:var(--maxw); margin:0 auto; color:var(--text-dim); font-size:0.82rem; border-top:1px solid var(--line); text-align:center; }
+footer a{ color:var(--blue); text-decoration:none; }
+
+/* ---------- PERSONAL INFO BLOCK ---------- */
+.pinfo-grid{ display:grid; grid-template-columns:140px 1fr; gap:0.6rem 1rem; }
+.pinfo-grid dt{ font-family:var(--mono); font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:.05em; padding:0.3em 0; }
+.pinfo-grid dd{ margin:0; padding:0.3em 0; font-size:0.92rem; color:var(--text); }
+.pinfo-grid dd a{ color:var(--blue); text-decoration:none; border-bottom:1px dotted var(--blue-dim); }
+.pinfo-grid dd a:hover{ border-bottom-style:solid; }
+@media (max-width:560px){ .pinfo-grid{ grid-template-columns:1fr; } .pinfo-grid dt{ padding-bottom:0; } }
+
+/* ---------- YEAR-CLICKABLE ELEMENTS (link back to career timeline) ---------- */
+.year-clickable{ cursor:pointer; transition:color .2s, border-color .2s; border-bottom:1px dotted transparent; }
+.year-clickable:hover{ color:var(--blue) !important; border-bottom-color:var(--blue); }
+.entry-head .tag.year-clickable:hover{ border-color:var(--blue); }
+.entry-org a.org-link{ color:inherit; text-decoration:none; border-bottom:1px dotted var(--line-strong); }
+.entry-org a.org-link:hover{ border-bottom-color:var(--blue); color:var(--blue); }
+
+::selection{background:var(--rose-dim); color:var(--text);}
+@media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+@media (max-width:620px){
+  .lang-row{ grid-template-columns:100px 1fr 34px; }
+  .meter-row{ grid-template-columns:110px 1fr 70px; }
+}
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <a href="#hero" class="brand"><span class="dot0"></span><span class="dot1"></span>&nbsp;Paulo Sousa</a>
+  <nav id="topnavLinks">
+    <a href="#about" style="--c:var(--blue)">1. About</a>
+    <a href="#work" style="--c:var(--teal)">2. Work</a>
+    <a href="#academic" style="--c:var(--violet)">3. Academic</a>
+    <a href="#education" style="--c:var(--amber)">4. Education</a>
+    <a href="#certifications" style="--c:var(--rose)">5. Certifications</a>
+    <a href="#awards" style="--c:var(--green)">6. Awards</a>
+    <a href="#publications" style="--c:var(--amber)">7. Publications</a>
+    <a href="#languages" style="--c:var(--orange)">8. Languages</a>
+    <a href="#skills" style="--c:var(--indigo)">9. Skills</a>
+    <a href="#references" style="--c:var(--text-muted)">10. References</a>
+  </nav>
+  <button id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">🌙</button>
+  <button id="navToggle" aria-label="Toggle menu">☰</button>
+</div>
+
+<nav id="sidenav">
+<div class="sn-scroll">
+  <a class="sn-main" href="#hero" style="--c:var(--text-muted)"><span class="node"></span><span class="label">Hero</span></a>
+
+  <div class="sn-group">
+    <a class="sn-main" href="#about" style="--c:var(--blue)"><span class="node"></span><span class="label">1. About</span></a>
+    <a class="sn-sub" href="#sec-1-1" style="--c:var(--blue)"><span class="node"></span><span class="label">1.1 Personal Info</span></a>
+    <a class="sn-sub" href="#sec-1-2" style="--c:var(--blue)"><span class="node"></span><span class="label">1.2 Profile</span></a>
+    <a class="sn-sub" href="#sec-1-3" style="--c:var(--blue)"><span class="node"></span><span class="label">1.3 Career Timeline</span></a>
+  </div>
+
+  <div class="sn-group">
+    <a class="sn-main" href="#work" style="--c:var(--teal)"><span class="node"></span><span class="label">2. Work Experience</span></a>
+  </div>
+
+  <div class="sn-group">
+    <a class="sn-main" href="#academic" style="--c:var(--violet)"><span class="node"></span><span class="label">3. Academic &amp; Teaching</span></a>
+    <a class="sn-sub" href="#sec-3-1" style="--c:var(--violet)"><span class="node"></span><span class="label">3.1 Teaching Roles</span></a>
+    <a class="sn-sub" href="#sec-3-2" style="--c:var(--violet)"><span class="node"></span><span class="label">3.2 Advising &amp; Boards</span></a>
+  </div>
+
+  <div class="sn-group">
+    <a class="sn-main" href="#education" style="--c:var(--amber)"><span class="node"></span><span class="label">4. Education</span></a>
+  </div>
+
+  <div class="sn-group">
+    <a class="sn-main" href="#certifications" style="--c:var(--rose)"><span class="node"></span><span class="label">5. Certifications</span></a>
+    <a class="sn-sub" href="#sec-5-1" style="--c:var(--rose)"><span class="node"></span><span class="label">5.1 Professional</span></a>
+    <a class="sn-sub" href="#sec-5-2" style="--c:var(--rose)"><span class="node"></span><span class="label">5.2 Data Science</span></a>
+    <a class="sn-sub" href="#sec-5-3" style="--c:var(--rose)"><span class="node"></span><span class="label">5.3 Quantum Computing</span></a>
+    <a class="sn-sub" href="#sec-5-4" style="--c:var(--rose)"><span class="node"></span><span class="label">5.4 AI &amp; Cloud</span></a>
+    <a class="sn-sub" href="#sec-5-5" style="--c:var(--rose)"><span class="node"></span><span class="label">5.5 More Courses</span></a>
+  </div>
+
+  <div class="sn-group">
+    <a class="sn-main" href="#awards" style="--c:var(--green)"><span class="node"></span><span class="label">6. Awards</span></a>
+  </div>
+
+  <div class="sn-group">
+    <a class="sn-main" href="#publications" style="--c:var(--amber)"><span class="node"></span><span class="label">7. Publications</span></a>
+  </div>
+
+  <div class="sn-group">
+    <a class="sn-main" href="#languages" style="--c:var(--orange)"><span class="node"></span><span class="label">8. Languages</span></a>
+  </div>
+
+  <div class="sn-group">
+    <a class="sn-main" href="#skills" style="--c:var(--indigo)"><span class="node"></span><span class="label">9. Skills</span></a>
+    <a class="sn-sub" href="#sec-8-1" style="--c:var(--indigo)"><span class="node"></span><span class="label">9.1 Technical</span></a>
+    <a class="sn-sub" href="#sec-8-2" style="--c:var(--indigo)"><span class="node"></span><span class="label">9.2 Digital &amp; Soft Skills</span></a>
+    <a class="sn-sub" href="#sec-8-3" style="--c:var(--indigo)"><span class="node"></span><span class="label">9.3 Interests</span></a>
+  </div>
+
+  <div class="sn-group">
+    <a class="sn-main" href="#references" style="--c:var(--text-muted)"><span class="node"></span><span class="label">10. References</span></a>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<section id="hero">
+  <div id="avatar">PS</div>
+  <h1>Paulo Sousa</h1>
+  <div class="role">IT Project Manager · Business Analyst · Academic Lecturer</div>
+  <p class="sub">Thirty-plus years moving between government IT leadership in Brazil and the classroom — with a doctorate in quantum computing threaded through both, eleven quantum courses completed in 2025, and a 2026 Excellence in Teaching Award at Algonquin College.</p>
+  <div class="chips">
+    <a class="chip" href="mailto:paulo.benicio@gmail.com">✉ paulo.benicio@gmail.com</a>
+    <a class="chip" href="https://www.linkedin.com/in/paulobmsousa/" target="_blank" rel="noopener">in LinkedIn</a>
+    <a class="chip" href="https://orcid.org/0000-0003-2599-3558" target="_blank" rel="noopener">ORCID</a>
+    <a class="chip" href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4767978Z2" target="_blank" rel="noopener">Lattes / CNPq</a>
+    <a class="chip" href="http://credly.com/users/paulo-bms" target="_blank" rel="noopener">Credly</a>
+    <span class="chip">📍 Halifax, NS, Canada</span>
+  </div>
+  <div class="scrolldown"><span>SCROLL</span><span class="line"></span></div>
+</section>
+
+<section id="about" class="wide">
+  <div class="section-head reveal">
+    <div class="eyebrow">01 — ABOUT</div>
+    <h2 id="sec-1">Profile &amp; career at a glance <a class="idx-badge" href="#" title="Section 1">[1]</a></h2>
+    <p class="lede">A career built on the same pattern repeated for two decades: run the technology, then teach it — often in the same year.</p>
+  </div>
+
+  <div class="subhead reveal" id="sec-1-1">1.1 Personal information</div>
+  <div class="reveal" id="personalInfoBlock" style="border:1px solid var(--line); border-radius:14px; background:var(--bg-panel); padding:1.3rem 1.5rem; margin-bottom:1rem;"></div>
+
+  <div class="subhead reveal" id="sec-1-2">1.2 Profile</div>
+  <p class="reveal" style="color:var(--text-muted)">Paulo Benício Melo Sousa is a Brazilian IT Project Manager / Business Analyst and academic lecturer now based in Halifax, Nova Scotia. His career splits cleanly into two threads that almost always ran in parallel: leading technology teams inside Brazil's public sector (culminating in managing government-wide systems for the State of Ceará's Finance Secretariat) and teaching computer science at the university level most evenings for nearly two decades. Since 2019 he has taught full-time at Algonquin College in Ottawa, and since 2025 has been deep in a self-directed return to his doctoral subject — quantum computing — stacking up certifications from IBM, Google, and the Linux Foundation.</p>
+  <div class="stat-grid reveal">
+    <div class="stat-card"><div class="s-num">30+</div><div class="s-label">years in IT &amp; academia</div></div>
+    <div class="stat-card"><div class="s-num">3</div><div class="s-label">degrees (BSc · MSc · DSc)</div></div>
+    <div class="stat-card"><div class="s-num">3</div><div class="s-label">PMI certifications (active to 2026)</div></div>
+    <div class="stat-card"><div class="s-num">50</div><div class="s-label">largest team led (SEFAZ-CE)</div></div>
+    <div class="stat-card"><div class="s-num">16</div><div class="s-label">undergrad theses supervised</div></div>
+    <div class="stat-card"><div class="s-num">12</div><div class="s-label">selected publications</div></div>
+    <div class="stat-card"><div class="s-num">11</div><div class="s-label">quantum courses in 2025 alone</div></div>
+    <div class="stat-card"><div class="s-num">2</div><div class="s-label">Algonquin teaching awards (2025–26)</div></div>
+  </div>
+
+  <div class="subhead reveal" id="sec-1-3">1.3 Career timeline</div>
+  <p class="reveal" style="color:var(--text-muted)">Drag or click along the chart to jump to a year — or click any bar, date badge, or course-table year elsewhere on the page — to see what Paulo was doing at any point since 1991. Day jobs and evening teaching very often overlapped.</p>
+  <div class="reveal" style="border:1px solid var(--line); border-radius:14px; background:var(--bg-panel); padding:1.4rem;">
+    <div id="ganttReadout"></div>
+    <div id="ganttChart"></div>
+    <div class="gantt-legend" id="ganttLegend"></div>
+    <div id="ganttControls">
+      <button class="btn" id="ganttPlayBtn">▶ Play the record</button>
+      <button class="btn secondary" id="ganttResetBtn">⟲ Back to 1991</button>
+      <span style="font-family:var(--mono); font-size:0.72rem; color:var(--text-dim);">or drag directly on the chart</span>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="wide">
+  <div class="section-head reveal">
+    <div class="eyebrow">02 — WORK EXPERIENCE</div>
+    <h2 id="sec-2">Twenty years of running the systems <a class="idx-badge" href="#" title="Section 2">[2]</a></h2>
+    <p class="lede">Reverse-chronological, from full-time professor in Ottawa back to a Brazilian university network-administration job in 1993.</p>
+  </div>
+  <div id="workContainer"></div>
+</section>
+
+<section id="academic" class="wide">
+  <div class="section-head reveal">
+    <div class="eyebrow">03 — ACADEMIC &amp; TEACHING</div>
+    <h2 id="sec-3">Nearly every evening, a classroom <a class="idx-badge" href="#" title="Section 3">[3]</a></h2>
+    <p class="lede">While running government IT by day, Paulo taught undergraduate and master's courses most evenings from 2000 to 2019 — often at two or three institutions at once.</p>
+  </div>
+  <div class="subhead reveal" id="sec-3-1">3.1 Teaching roles</div>
+  <div id="teachingContainer"></div>
+  <div class="subhead reveal" id="sec-3-2">3.2 Advising &amp; academic boards</div>
+  <p class="reveal" style="color:var(--text-muted)">Figures below are from Paulo's <a class="card-link" href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4767978Z2" target="_blank" rel="noopener">Lattes / CNPq</a> record, Brazil's national research curriculum database.</div>
+  <div class="stat-grid reveal" id="advisingGrid"></div>
+</section>
+
+<section id="education" class="wide">
+  <div class="section-head reveal">
+    <div class="eyebrow">04 — EDUCATION</div>
+    <h2 id="sec-4">Three degrees, one running theme <a class="idx-badge" href="#" title="Section 4">[4]</a></h2>
+    <p class="lede">The doctorate is where quantum computing enters the story — nearly two decades before it became the subject of a 2025 refresher course marathon.</p>
+  </div>
+  <div id="educationContainer"></div>
+</section>
+
+<section id="certifications" class="wide">
+  <div class="section-head reveal">
+    <div class="eyebrow">05 — CERTIFICATIONS</div>
+    <h2 id="sec-5">Credentials, old and very new <a class="idx-badge" href="#" title="Section 5">[5]</a></h2>
+    <p class="lede">Three still-active PMI certifications anchor a long tail of continuing education — most strikingly, eleven separate quantum computing courses completed in 2025 alone.</p>
+  </div>
+
+  <div class="subhead reveal" id="sec-5-1">5.1 Professional certifications</div>
+  <div class="topic-grid reveal" id="certProfessionalGrid"></div>
+
+  <div class="subhead reveal" id="sec-5-2">5.2 Data science specializations</div>
+  <div class="topic-grid reveal" id="certDataScienceGrid"></div>
+
+  <div class="subhead reveal" id="sec-5-3">5.3 Quantum computing (2025)</div>
+  <p class="reveal" style="color:var(--text-muted)">Eleven courses in a single year — the same subject as the 2008 doctorate, revisited with a decade and a half of hardware progress behind it.</p>
+  <div class="topic-grid reveal" id="certQuantumGrid"></div>
+
+  <div class="subhead reveal" id="sec-5-4">5.4 AI &amp; cloud</div>
+  <div class="topic-grid reveal" id="certAIGrid"></div>
+
+  <div class="subhead reveal" id="sec-5-5">5.5 Additional short courses (2009–2019)</div>
+  <p class="reveal" style="color:var(--text-muted)">Mostly Brazil-based project-management and business-intelligence training, plus Algonquin College teaching-compliance modules.</p>
+  <div class="course-table-wrap reveal">
+    <table class="course-table">
+      <thead><tr><th>Year</th><th>Course</th><th>Provider</th><th>Duration</th></tr></thead>
+      <tbody id="courseTableBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="awards" class="wide">
+  <div class="section-head reveal">
+    <div class="eyebrow">06 — AWARDS</div>
+    <h2 id="sec-6">Three recognitions across a decade <a class="idx-badge" href="#" title="Section 6">[6]</a></h2>
+    <p class="lede">One from the Brazilian public sector for a flagship government system, and two from Algonquin College for teaching excellence (2025 and 2026).</p>
+  </div>
+  <div id="awardsContainer"></div>
+</section>
+
+<section id="publications" class="wide">
+  <div class="section-head reveal">
+    <div class="eyebrow">07 — PUBLICATIONS</div>
+    <h2 id="sec-7p">Selected publications <a class="idx-badge" href="#" title="Section 7">[7]</a></h2>
+    <p class="lede">From quantum algorithms and multiplayer quantum games (2005–2008) through applied computational work and a 2026 QAOA-based flight-route optimisation paper.</p>
+  </div>
+  <div id="publicationsContainer"></div>
+</section>
+
+<section id="languages" class="wide">
+  <div class="section-head reveal">
+    <div class="eyebrow">08 — LANGUAGES</div>
+    <h2 id="sec-7">Portuguese native, working English, growing French <a class="idx-badge" href="#" title="Section 8">[8]</a></h2>
+    <p class="lede">CEFR levels below (A1/A2 = basic user, B1/B2 = independent user, C1/C2 = proficient user).</p>
+  </div>
+  <div id="languagesContainer" class="reveal"></div>
+  <p class="reveal" style="color:var(--text-muted); margin-top:1rem;">General communication in English is focused on technical and management contexts; there's also basic understanding of French and Spanish, especially where they intersect with computing and science.</p>
+</section>
+
+<section id="skills" class="wide">
+  <div class="section-head reveal">
+    <div class="eyebrow">09 — SKILLS</div>
+    <h2 id="sec-8">What's actually in the toolbox <a class="idx-badge" href="#" title="Section 9">[9]</a></h2>
+    <p class="lede">Technical range built up across research computing, enterprise government systems, and the classroom — plus the digital and organisational skills that keep all of it moving.</p>
+  </div>
+
+  <div class="subhead reveal" id="sec-8-1">9.1 Technical skills</div>
+  <div style="margin-bottom:1.4rem;">
+    <p class="reveal" style="color:var(--text-muted); margin-bottom:0.5em;"><strong style="color:var(--text-muted)">Programming</strong></p>
+    <div class="chip-cloud reveal" id="chipProgramming"></div>
+  </div>
+  <div style="margin-bottom:1.4rem;">
+    <p class="reveal" style="color:var(--text-muted); margin-bottom:0.5em;"><strong style="color:var(--text-muted)">Tools</strong></p>
+    <div class="chip-cloud reveal" id="chipTools"></div>
+  </div>
+  <div style="margin-bottom:1.4rem;">
+    <p class="reveal" style="color:var(--text-muted); margin-bottom:0.5em;"><strong style="color:var(--text-muted)">Also familiar with</strong></p>
+    <div class="chip-cloud reveal" id="chipKnowledge"></div>
+  </div>
+
+  <div class="subhead reveal" id="sec-8-2">9.2 Digital &amp; soft skills</div>
+  <p class="reveal" style="color:var(--text-muted)">Self-assessed digital skills (Europass framework):</p>
+  <div class="reveal" id="digitalSkillsContainer" style="margin-bottom:1.4rem;"></div>
+  <div class="topic-grid reveal">
+    <div class="topic-card"><h4>Organisational / managerial</h4><p>Self-discipline and organisation for team development; able to generate and analyse trends and challenges; comfortable with project-management and collaboration tooling.</p></div>
+    <div class="topic-card"><h4>Job-related</h4><p>Technical skill and continuous development, focused on staying current with technology, management practice, and enterprise solutions.</p></div>
+    <div class="topic-card"><h4>Communication</h4><p>General communication in English for technical and management contexts, with basic French/Spanish understanding for computing and science topics.</p></div>
+  </div>
+
+  <div class="subhead reveal" id="sec-8-3">9.3 Interests</div>
+  <div class="chip-cloud interests reveal" id="chipInterests"></div>
+</section>
+
+<section id="references" class="wide">
+  <div class="section-head reveal">
+    <div class="eyebrow">10 — REFERENCES &amp; LINKS</div>
+    <h2>Web references mentioned or related <a class="idx-badge" href="#" title="Section 10">[10]</a></h2>
+    <p class="lede">Primary professional profiles, institutional sites, credentials, and selected publication venues from the curriculum.</p>
+  </div>
+  <div class="topic-grid reveal">
+    <div class="topic-card">
+      <h4><span class="plat-dot" style="background:var(--blue)"></span>Professional profiles</h4>
+      <p><a class="card-link" href="https://www.linkedin.com/in/paulobmsousa/" target="_blank" rel="noopener">LinkedIn</a></p>
+      <p><a class="card-link" href="https://orcid.org/0000-0003-2599-3558" target="_blank" rel="noopener">ORCID 0000-0003-2599-3558</a></p>
+      <p><a class="card-link" href="https://scholar.google.ca/citations?user=QFK7SO8AAAAJ" target="_blank" rel="noopener">Google Scholar</a></p>
+      <p><a class="card-link" href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4767978Z2" target="_blank" rel="noopener">Lattes / CNPq</a></p>
+      <p><a class="card-link" href="http://credly.com/users/paulo-bms" target="_blank" rel="noopener">Credly badges</a></p>
+    </div>
+    <div class="topic-card">
+      <h4><span class="plat-dot" style="background:var(--teal)"></span>Institutions</h4>
+      <p><a class="card-link" href="https://www.algonquincollege.com/" target="_blank" rel="noopener">Algonquin College</a></p>
+      <p><a class="card-link" href="https://www.sefaz.ce.gov.br" target="_blank" rel="noopener">SEFAZ-CE (Finance State Secretary)</a></p>
+      <p><a class="card-link" href="https://www.atlantico.com.br" target="_blank" rel="noopener">Atlantico Institute</a></p>
+      <p><a class="card-link" href="https://www.cenapad.ufc.br" target="_blank" rel="noopener">CENAPAD-UFC</a></p>
+      <p><a class="card-link" href="https://www.ufc.br" target="_blank" rel="noopener">Universidade Federal do Ceará</a></p>
+      <p><a class="card-link" href="https://www.uece.br" target="_blank" rel="noopener">Universidade Estadual do Ceará</a></p>
+    </div>
+    <div class="topic-card">
+      <h4><span class="plat-dot" style="background:var(--rose)"></span>Certifications &amp; PMI</h4>
+      <p><a class="card-link" href="https://www.pmi.org" target="_blank" rel="noopener">Project Management Institute</a></p>
+      <p><a class="card-link" href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMP</a> · <a class="card-link" href="https://www.pmi.org/certifications/agile-acp" target="_blank" rel="noopener">ACP</a> · <a class="card-link" href="https://www.pmi.org/certifications/business-analysis-pba" target="_blank" rel="noopener">PBA</a></p>
+      <p><a class="card-link" href="https://www.coursera.org/account/accomplishments/specialization/RN6JS8VZQCHK" target="_blank" rel="noopener">IBM Data Science Specialization</a></p>
+      <p><a class="card-link" href="https://www.coursera.org/account/accomplishments/specialization/38SNTDPD4CP2" target="_blank" rel="noopener">Johns Hopkins Executive Data Science</a></p>
+    </div>
+    <div class="topic-card">
+      <h4><span class="plat-dot" style="background:var(--green)"></span>Awards &amp; recent work</h4>
+      <p><a class="card-link" href="https://www.algonquinsaa.com/event/algonquin-students-association-faculty-recognition-2026/" target="_blank" rel="noopener">2026 Excellence in Teaching Award</a></p>
+      <p>IrisPathQ (QAOA flight-route optimisation) — Algonquin College, 2026</p>
+      <p>References available upon request (Brazil, Canada, USA, England, Portugal)</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built as a self-contained HTML page from Paulo Sousa's Europass CV (update 2026-08-22). Layout and interaction patterns adapted from a quantum-computing course microsite. Reach out by email or LinkedIn above. Halifax, Aug 22nd 2026.
+</footer>
+
+</main>
+
+<script>
+/* =========================================================
+   DATA
+========================================================= */
+const workData = [
+ {tag:"Aug 2019 – present", startYear:2019, role:"Academic Professor / Lecturer / Instructor", org:"Algonquin College of Applied Arts and Technology, 1385 Woodroffe Avenue, Ottawa, ON K2G 1V8", orgUrl:"https://www.algonquincollege.com/", bullets:[
+   "Full-time professor",
+   "Courses: Compilers (ANSI C, lecture &amp; labs); Java Application Programming (interfaces &amp; networking, JSE); Business Intelligence &amp; Data Analytics (Weka labs and Python); Advanced Scripting (Python and PostgreSQL); Data Structures; OOP (Object Orientation Programming)",
+   "Methodologies &amp; tools: Brightspace (Online Learning Platform), MS Teams, Zoom; practical labs using code-sharing (C/Java) and collaborative techniques (UDL – Universal Design for Learning); Kahoot, SurveyMonkey"
+ ], sector:"Higher Education"},
+ {tag:"Feb 2017 – Feb 2019", startYear:2017, role:"Development Unit Manager", org:"Finance State Secretary (SEFAZ-CE), Fortaleza, Brazil — CESINF (Information Systems Cell)", orgUrl:"https://www.sefaz.ce.gov.br", bullets:[
+   "Led a development team of 50 analysts and developers",
+   "Oversaw projects across Natural-Adabas, .NET C#, VB, ASP, Java EE, Angular, F#, PHP, Clipper, Oracle Forms",
+   "Supported architecture &amp; requirements teams, including Function Point (FP) studies",
+   "Contract procurement &amp; supervision, PMI risk analysis, resource allocation, conflict management, stakeholder communication",
+   "Experience downsizing projects and multiplatform architectures",
+   "Methodologies &amp; tools: predictive analysis, Scrum, Kanban, Canvas technique, Pareto diagnosis; ChangePoint, Mantis"
+ ], sector:"Information &amp; Communication"},
+ {tag:"Jan 2016 – Jan 2017", startYear:2016, role:"Data Services Department Manager", org:"Finance State Secretary (SEFAZ-CE) — CEDAC (Data &amp; Knowledge Cell)", orgUrl:"https://www.sefaz.ce.gov.br", bullets:[
+   "Coordinated a Business Intelligence team of 15 analysts",
+   "Monitored and led BI, ETL and data-governance projects",
+   "Contract administration; supported institutional data-governance policy and data-visualization training",
+   "Methodologies &amp; tools: Scrum, Canvas, Pareto, ChangePoint; SAP BusinessObjects, Tableau, ETL PowerCenter"
+ ], sector:"Public Administration &amp; Defence"},
+ {tag:"Jul 2008 – Dec 2015", startYear:2008, role:"Government Resource Planning Team Leader", org:"Finance State Secretary (SEFAZ-CE) — S2GPR (Government Resource Planning System)", orgUrl:"https://www.sefaz.ce.gov.br", bullets:[
+   "Led development of S2GPR with 20+ developers across 5 software houses",
+   "Requirement specification and development coordination across Finance, Planning &amp; Control secretariats",
+   "Operational, corrective and evolutive system maintenance",
+   "Methodologies &amp; tools: Scrum, Project Server, Jira, Git, SVN, Java, PostgreSQL, JBoss, BPM, Eclipse Process Framework"
+ ], sector:"Public Administration &amp; Defence"},
+ {tag:"Jan 2004 – Jan 2005", startYear:2004, role:"Research &amp; Development Department Manager", org:"Atlantico Institute, Fortaleza, Brazil", orgUrl:"https://www.atlantico.com.br", bullets:[
+   "Managed the XML Microsoft Innovation Center (5 analysts and students)",
+   "Business-case PoC development with academic partners and regional companies",
+   "Methodologies &amp; tools: MSF (Microsoft Solution Framework), .NET, web-service integration"
+ ], sector:"Information &amp; Communication"},
+ {tag:"Jan 2002 – Jan 2005", startYear:2002, role:"Computer Systems Analyst", org:"Atlantico Institute, Fortaleza, Brazil", orgUrl:"https://www.atlantico.com.br", bullets:[
+   "Java developer (Sun Certified Java Programmer 1.4) on SOA, distributed-systems and computational-grid projects with CPqD and HP",
+   "CMMI assessment practitioner",
+   "Methodologies: RUP, XP (eXtreme Programming), TDD"
+ ], sector:"Information &amp; Communication"},
+ {tag:"Feb 1996 – Dec 1999", startYear:1996, role:"High Performance Computing Technical Manager", org:"CENAPAD-UFC, Federal University of Ceará", orgUrl:"https://www.cenapad.ufc.br", bullets:[
+   "Led a 5-analyst team supporting around 10 research groups across Computer Science, Math, Physics and Biology",
+   "Supported scientific computing via MPL (Message Passing Libraries) in C/Fortran, using PVM and MPI",
+   "Network administration: TCP-IP, HTTP, FTP, SNMP, NIS, DNS"
+ ], sector:"Information &amp; Communication"},
+ {tag:"May 1995 – Apr 1996", startYear:1995, role:"Developer", org:"SoftBook Inovações Tecnológicas Ltda., Fortaleza, Brazil", bullets:[
+   "VB and C developer",
+   "Methodologies: RUP-based development"
+ ], sector:"Information &amp; Communication"},
+ {tag:"Jul 1993 – Dec 1995", startYear:1993, role:"Network Administrator", org:"State University of Ceará (UECE)", orgUrl:"https://www.rnp.uece.br", bullets:[
+   "Administered the local point of RNP (Rede Nacional de Pesquisa), Brazil's national research network",
+   "Supported TCP-IP, HTTP, SNMP, FTP, ICMP, NIS and DNS",
+   "Unix / Linux administration, C and Shell scripting"
+ ], sector:"Information &amp; Communication"},
+];
+
+const teachingData = [
+ {tag:"2011 – 2019 (evenings)", startYear:2011, role:"Undergraduate &amp; master's advisor / lecturer", org:"FBUni — Centro Universitário Farias Brito", orgUrl:"https://www.fbuni.edu.br", subjects:"Project Management, Automata &amp; Formal Languages, Compilers, Algorithms, Software Engineering, Programming Languages, Object Orientation, Distributed Systems, Computer Networks"},
+ {tag:"2012 – 2015 (evenings)", startYear:2012, role:"Lecturer &amp; advisor", org:"MPCOMP — Professional Master's in Computing, Universidade Estadual do Ceará", orgUrl:"https://www.uece.br", subjects:"Project Management, Software Engineering, Programming Languages, Object Orientation, Computer Networks, Design Patterns, Introduction to Computer Science"},
+ {tag:"2012 – 2015 (evenings)", startYear:2012, role:"Lecturer &amp; advisor", org:"FAMETRO — Faculdade Metropolitana de Fortaleza", orgUrl:"https://www.fametro.com.br", subjects:"Project Management, Software Engineering, Programming Languages, Object Orientation, Computer Networks, Design Patterns, Introduction to Computer Science"},
+ {tag:"2009 – 2011 (evenings)", startYear:2009, role:"Graduate course instructor", org:"UNIFOR — Universidade de Fortaleza", orgUrl:"https://www.unifor.br", subjects:"JEE Architecture / JEE Platform"},
+ {tag:"2005 – 2008 (evenings)", startYear:2005, role:"Lecturer &amp; advisor", org:"FIC — Faculdades Integradas do Ceará", orgUrl:"https://www.fic.edu.br", subjects:"Software Engineering, Programming Languages, Programming Techniques, Introduction to Computer Science"},
+ {tag:"2001 – 2010 (evenings)", startYear:2001, role:"Undergraduate lecturer", org:"Uni7 — Centro Universitário 7 de Setembro &amp; UVA — Universidade Vale do Acaraú", orgUrl:"https://uni7.edu.br", subjects:"Project Management, Automata &amp; Formal Languages, Compilers, Algorithms, Software Engineering, Programming Languages, OOP, Distributed Systems, Computer Networks, Design Patterns, Introduction to Computer Science"},
+ {tag:"2000 – 2001", startYear:2000, role:"Undergraduate lecturer", org:"UFC — Universidade Federal do Ceará", orgUrl:"https://www.ufc.br", subjects:"Computer Architecture, Programming Languages, Applied Computing, Introduction to Computer Science"},
+];
+
+const advisingData = [
+ {num:"16", label:"undergrad thesis advisories concluded"},
+ {num:"5", label:"master's theses supervised (primary advisor)"},
+ {num:"15", label:"graduate-board participations"},
+ {num:"11", label:"master's-board participations"},
+ {num:"2", label:"PhD qualification exam boards"},
+ {num:"1", label:"doctorate board participation"},
+];
+
+const educationData = [
+ {tag:"2005 – 2008", startYear:2005, degree:"DSc in Tele-informatics Engineering", org:"Universidade Federal do Ceará (UFC), Fortaleza, Brazil", orgUrl:"https://www.ufc.br", grade:"9.1 / 10", detail:"Theme: Quantum circuits, protocols and applications. Research lines: quantum physics, quantum computation, security protocols and applications. Network: Quantum Information Group (University of Waterloo); Quantum Computing Group at UFCG (Campina Grande).", highlight:true},
+ {tag:"1998 – 2002", startYear:1998, degree:"MSc in Computer Science", org:"Universidade Federal do Ceará (UFC), Fortaleza, Brazil", orgUrl:"https://www.ufc.br", grade:"8.6 / 10", detail:"Theme: Framework to Distributed Applications using MPL and Java. Research lines: computational grids, parallel applications, Java applications. Network: CENAPAD-NE, CENAPAD-SP, Distributed Systems Group at UFCG.", highlight:false},
+ {tag:"1991 – 1994", startYear:1991, degree:"Bachelor's in Computer Science", org:"Universidade Estadual do Ceará (UECE), Fortaleza, Brazil", orgUrl:"https://www.uece.br", grade:"8.9 / 10", detail:"Study lines: Algorithms, Artificial Intelligence, Theory of Computation.", highlight:false},
+];
+
+const awardsData = [
+ {name:"Faculty Recognition Awards — Excellence in Teaching Award", color:"var(--green)", where:"Ottawa, Canada — 2026", year:2026, detail:"Seven Algonquin professors received the Excellence in Teaching Award in recognition of faculty members who have gone above and beyond in the classroom. Candidates are nominated by students.", url:"https://www.algonquinsaa.com/event/algonquin-students-association-faculty-recognition-2026/"},
+ {name:"Faculty Recognition Awards", color:"var(--green)", where:"Ottawa, Canada — 2025", year:2025, detail:"Created in 1995 to give students a way to recognize faculty who go above and beyond in the classroom — those who reflect the College's mission to inspire a passion for student success."},
+ {name:"Functional Recognition Award — SEFAZ", color:"var(--teal)", where:"Fortaleza, Brazil — 2014", year:2014, detail:"Annual award recognizing professionals for their contribution to the organization, given for the impact and innovation of the S2GPR (Government Resource Planning) project."},
+];
+
+const publicationsData = [
+ {title:"IrisPathQ: Quantum-enhanced flight route optimization using QAOA", pub:"School of Advanced Technology: Faculty and Staff", year:2026, publisher:"Algonquin College"},
+ {title:"Antiviral potential of diminazene aceturate against SARS-CoV-2 proteases using computational and in vitro approaches", pub:"Chemico-biological interactions", year:2022, publisher:"Elsevier"},
+ {title:"Acompanhamento do Desempenho das Atribuições de Tutores a Distância: Método e Ferramenta", pub:"EaD em Foco", year:2015, publisher:"Secretaria da Fazenda"},
+ {title:"Quantum algorithms for optimization using asymptotic quantum search", pub:"International Journal of Quantum Information", year:2008, publisher:"World Scientific"},
+ {title:"Multiplayer quantum games and its application as access controller in architecture of quantum computers", pub:"Quantum Information Processing", year:2008, publisher:"Springer US Boston"},
+ {title:"New models of quantum games", pub:"arXiv preprint quant-ph/0608131", year:2006, publisher:"ArXiv"},
+ {title:"Universal quantum circuit form-qubit quantum gate: A programmable quantum gate", pub:"arXiv preprint quant-ph/0602174", year:2006, publisher:"ArXiv"},
+ {title:"Contract Signature Using Quantum Information", pub:"arXiv preprint quant-ph/0608232", year:2006, publisher:"ArXiv"},
+ {title:"Solving mathematical problems with quantum search algorithm", pub:"arXiv preprint quant-ph/0605003", year:2006, publisher:"ArXiv"},
+ {title:"Quantum search algorithm using quantum bit string comparator", pub:"2006 International Telecommunications Symposium", year:2006, publisher:"IEEE"},
+ {title:"Simple setups for quantum games in optical networks", pub:"arXiv preprint quant-ph/0610254", year:2006, publisher:"ArXiv"},
+ {title:"Anti-doping: An approach for grid integrity verification", pub:"Advanced Industrial Conference on Telecommunications/Service Assurance (AICT/SAPIR/ELETE'05)", year:2005, publisher:"IEEE"},
+];
+
+const personalInfoData = [
+ {label:"Full name", value:"Paulo Benício Melo Sousa"},
+ {label:"Address", value:"285 Larry Uteck Blvd, ap 212, Halifax, NS, Canada"},
+ {label:"Phone", value:"+1 (819) 830-0325", link:"tel:+18198300325"},
+ {label:"Email", value:"paulo.benicio@gmail.com", link:"mailto:paulo.benicio@gmail.com"},
+ {label:"LinkedIn", value:"linkedin.com/in/paulobmsousa", link:"https://www.linkedin.com/in/paulobmsousa/"},
+ {label:"ORCID", value:"0000-0003-2599-3558", link:"https://orcid.org/0000-0003-2599-3558"},
+ {label:"Google Scholar", value:"scholar.google.ca citations", link:"https://scholar.google.ca/citations?user=QFK7SO8AAAAJ"},
+ {label:"Lattes / CNPq", value:"View research curriculum", link:"http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4767978Z2"},
+ {label:"Credly badges", value:"credly.com/users/paulo-bms", link:"http://credly.com/users/paulo-bms"},
+ {label:"Sex", value:"Male"},
+ {label:"Date of birth", value:"27/07/1971"},
+ {label:"Nationality", value:"Brazilian"},
+];
+
+const certProfessional = [
+ {name:"PMI-PMP #1915023", color:"var(--rose)", s1:["Credential","Project Management Professional"], s2:["Validation","Mar 2016 – Mar 2026"], p:"Recognizes competence performing as a project manager, with direct experience leading and directing projects.", url:"https://www.pmi.org/certifications/project-management-pmp"},
+ {name:"PMI-ACP #2015944", color:"var(--rose)", s1:["Credential","Agile Certified Practitioner"], s2:["Validation","Mar 2017 – Mar 2026"], p:"Demonstrates professionalism in agile project-management practices and versatility across agile tools and techniques.", url:"https://www.pmi.org/certifications/agile-acp"},
+ {name:"PMI-PBA #2552798", color:"var(--rose)", s1:["Credential","Business Process Analyst"], s2:["Validation","Mar 2019 – Mar 2026"], p:"Combines business-analysis training, project experience, and examination on business-analysis principles, practices and tools.", url:"https://www.pmi.org/certifications/business-analysis-pba"},
+ {name:"SCJP", color:"var(--blue)", s1:["Credential","Sun Certified Java Programmer 1.4"], s2:["Date","2003"], p:"Tests Java language syntax, core concepts, and common API knowledge for object-oriented design.", url:"https://en.wikipedia.org/wiki/Programmer_Certification_(Java)"},
+ {name:"SCJA", color:"var(--blue)", s1:["Credential","Sun Certified Associate, Java Platform"], s2:["Date","2005"], p:"Covers foundational object-oriented concepts through to integration technologies.", url:"https://en.wikipedia.org/wiki/Programmer_Certification_(Java)"},
+];
+
+const certDataScience = [
+ {name:"IBM Data Science Professional Certification", color:"var(--blue)", s1:["Provider","Coursera / IBM"], s2:["Completed","Jun 2019 · ~100h"], p:"9-course specialization: What is Data Science, open-source tools, methodology, Python, SQL &amp; databases, data analysis &amp; visualization with Python, machine learning with Python, applied capstone.", url:"https://www.coursera.org/account/accomplishments/specialization/RN6JS8VZQCHK"},
+ {name:"Johns Hopkins Executive Data Science Specialization", color:"var(--blue)", s1:["Provider","Coursera / Johns Hopkins"], s2:["Completed","Jul 2019 · ~40h"], p:"Crash course in data science, building &amp; managing a data-science team, data science in real life, executive capstone.", url:"https://www.coursera.org/account/accomplishments/specialization/38SNTDPD4CP2"},
+];
+
+const certQuantum = [
+ {name:"Hands-on Quantum Error Correction", color:"var(--rose)", s1:["Provider","Google / Coursera"], s2:["Duration","10h · 2025"], p:"Practical work with Google Quantum AI on error-correction techniques.", url:"https://coursera.org/share/c3a385d277fcac9fed598e4026ea5ac8"},
+ {name:"Introduction to Quantum Computing", color:"var(--rose)", s1:["Provider","LinkedIn Learning"], s2:["Duration","1h · 2025"], p:"Foundational overview of quantum computing concepts.", url:"https://www.linkedin.com/learning/certificates/0e05003eb687c71e055d19e142f289aef40f0cb8e7a9ea8e73f7ad574e3cf1f9?u=2199673"},
+ {name:"Quantum Machine Learning", color:"var(--rose)", s1:["Provider","IBM / CognitiveClass AI"], s2:["Duration","4h · 2025"], p:"Intersection of quantum computing and machine learning techniques.", url:"https://skills.yourlearning.ibm.com/certificate/URL-6A6828C3B546"},
+ {name:"Fundamentals of Quantum Computing (LFQ101)", color:"var(--rose)", s1:["Provider","Linux Foundation"], s2:["Duration","3h · 2025"], p:"Core quantum computing fundamentals course.", url:"https://www.credly.com/badges/df015f6a-8df9-4938-a603-2274ead17b23/linked_in?t=sw9fny"},
+ {name:"Quantum Enigmas", color:"var(--rose)", s1:["Provider","IBM / Université de Sherbrooke"], s2:["Duration","4h · 2025"], p:"Puzzle-driven exploration of quantum computing concepts.", url:"https://www.credly.com/badges/b32cac37-766c-40a9-92ca-1c2105f47f76"},
+ {name:"Variational Algorithm Design", color:"var(--rose)", s1:["Provider","IBM"], s2:["Duration","8h · 2025"], p:"Designing hybrid quantum-classical variational algorithms (VQE/QAOA-style workflows).", url:"https://www.credly.com/badges/893edb5c-f8d1-40ca-b095-85c8eee387e7"},
+ {name:"Practical Introduction to Quantum-Safe Cryptography", color:"var(--rose)", s1:["Provider","IBM"], s2:["Duration","6h · 2025"], p:"Post-quantum cryptography fundamentals and migration considerations.", url:"https://www.credly.com/badges/8bf972ad-5633-46bd-9f8f-3b69e83f0bdd"},
+ {name:"Quantum Business Foundation", color:"var(--rose)", s1:["Provider","—"], s2:["Duration","6h · 2025"], p:"Business-oriented foundation for quantum computing adoption.", url:"https://www.credly.com/badges/3e27d059-f33d-4311-901d-4539debe2b73"},
+ {name:"Fundamentals of Quantum Algorithms", color:"var(--rose)", s1:["Provider","IBM"], s2:["Duration","4h · 2025"], p:"Core algorithmic building blocks of quantum computing.", url:"https://www.credly.com/badges/0bc9bf25-06ec-445e-8dd0-400d2e4ebc59/linked_in?t=suyvy8"},
+ {name:"Basics of Quantum Information", color:"var(--rose)", s1:["Provider","IBM"], s2:["Duration","4h · 2025"], p:"Foundational quantum information theory.", url:"https://www.credly.com/badges/5fe7f6c3-e49f-4c6c-8396-0123cb2d334d/linked_in"},
+ {name:"The Complete Quantum Computing Course", color:"var(--rose)", s1:["Provider","Udemy"], s2:["Duration","17h · 2025"], p:"End-to-end quantum computing course covering theory and implementation.", url:"https://www.udemy.com/certificate/UC-949482be-b878-4872-9c9f-fbd810c3c8f0/"},
+];
+
+const certAI = [
+ {name:"DataOps Methodology", color:"var(--violet)", s1:["Provider","IBM / CognitiveClass AI"], s2:["Duration","4h · 2025"], p:"Methodology for operationalizing data pipelines.", url:"https://www.credly.com/badges/b38e3478-bf2b-471b-950f-ddb01f813684"},
+ {name:"Artificial Intelligence Fundamentals", color:"var(--violet)", s1:["Provider","IBM"], s2:["Duration","6h · 2025"], p:"Foundational AI concepts and applications.", url:"https://www.credly.com/badges/034501e2-1099-40d3-b811-d1bb07af54a3"},
+ {name:"Free Introduction to Cognitive PM in AI", color:"var(--violet)", s1:["Provider","PMI"], s2:["Duration","~3h · 2025"], p:"Introduces the CPMAI framework for AI project management.", url:"https://www.pmi.org/shop/p-/elearning/free-introduction-to-cognitive-project-management-in-ai-(cpmai)/el185"},
+ {name:"Generative AI Overview for Project Managers", color:"var(--violet)", s1:["Provider","PMI"], s2:["Duration","~5h · 2023"], p:"Generative AI concepts applied to project-management practice.", url:"https://www.pmi.org/shop/us/p-/elearning/generative-ai-overview-for-project-managers/el083"},
+ {name:"Generative AI Fundamentals", color:"var(--violet)", s1:["Provider","Google Cloud"], s2:["Duration","~4h · 2023"], p:"Core generative AI concepts on Google Cloud.", url:"https://www.cloudskillsboost.google/public_profiles/57200d30-91f3-4314-a8af-95a4c16e2d47"},
+ {name:"Introduction to Cloud Computing", color:"var(--violet)", s1:["Provider","—"], s2:["Duration","~12h · 2023"], p:"Foundational cloud computing concepts.", url:"https://coursera.org/share/f65d65064c2cd505c8c77ed85aab75e9"},
+ {name:"Faculty Learning Program", color:"var(--amber)", s1:["Provider","Algonquin College"], s2:["Duration","~80h · 2022"], p:"Extensive faculty development program for teaching effectiveness."},
+ {name:"Knowledge Centre for Student Academic Accommodations", color:"var(--amber)", s1:["Provider","Algonquin College"], s2:["Duration","~8h · 2021"], p:"Training on supporting students with academic accommodations."},
+ {name:"AODA Accessibility in Teaching and Learning", color:"var(--amber)", s1:["Provider","Algonquin College"], s2:["Duration","2020"], p:"Accessibility for Ontarians with Disabilities Act compliance training."},
+ {name:"Sexual Assault / Sexual Violence Policy Awareness", color:"var(--amber)", s1:["Provider","Algonquin College"], s2:["Duration","2020"], p:"Institutional policy-awareness training."},
+];
+
+const courseTableData = [
+ ["2019","Inteligência Artificial - Fundamentos","Data Science Academy","8h"],
+ ["2019","Introdução à Ciência de Dados 2.0","Data Science Academy","8h"],
+ ["2019","Big Data Fundamentos 2.0","Data Science Academy","8h"],
+ ["2018","Business Analyst &amp; PMI PBA Exam Prep","Udemy","35h"],
+ ["2018","Python Fundamentos para Análise de Dados","Data Science Academy","54h"],
+ ["2018","Agile Professional Certification Preparation","Udemy","20h"],
+ ["2017","Gestão Estratégica","INTRA / Intra.EAD","60h"],
+ ["2017","APF: Fundamentos, Benefícios e Implantação","Fatto Consultoria e Sistemas","8h"],
+ ["2017","Liderança","INTRA / Intra.EAD","60h"],
+ ["2016","Machine Learning Foundations – A Case Study","Coursera","40h"],
+ ["2016","Preparatório para os Exames CAPM e PMP","TI.Exames","40h"],
+ ["2016","Gestão de Projetos com Metodologias Ágeis","EGP-CE","32h"],
+ ["2015","Tableau Desktop Básico","Red Innovations","20h"],
+ ["2015","Tableau Desktop Avançado","Red Innovations","40h"],
+ ["2015","Preparatório para Certificação PMP","PortfólioGC","52h"],
+ ["2014","Análise Estruturada de Sistemas","Escola Virtual Fundação Bradesco","31h"],
+ ["2014","Modelagem de Dados","Escola Virtual Fundação Bradesco","35h"],
+ ["2013","Gestão de Sistemas de Informações Gerenciais","Unieducar","120h"],
+ ["2013","Business Intelligence - Sistemas de Apoio à Decisão","Unieducar","80h"],
+ ["2013","Preparatório para Certificação PMP e CAPM","Business School Brasil","40h"],
+ ["2012","Direito Tributário","Instituto Tributário de Ensino a Distância","120h"],
+ ["2011","Gerenciamento de Projetos","SEFAZ-CE","7h"],
+ ["2011","Continuing Education in ITIL V3 e Cobit","FB UNI","48h"],
+ ["2009","Preparatório para a Certificação PMP","PortfólioGC","45h"],
+];
+
+const languagesData = [
+ {name:"English", ielts:"IELTS GT CLB 7 (2018)", levels:{Listening:"B2",Reading:"B2","Spoken interaction":"B2","Spoken production":"B2",Writing:"B2"}},
+ {name:"French", ielts:null, levels:{Listening:"A2",Reading:"A2","Spoken interaction":"A1","Spoken production":"A1",Writing:"A2"}},
+];
+const CEFR_SCALE = {A1:1,A2:2,B1:3,B2:4,C1:5,C2:6};
+
+const digitalSkillsData = [
+ {name:"Information processing", level:"Proficient user", pct:100, color:"var(--indigo)"},
+ {name:"Communication", level:"Proficient user", pct:100, color:"var(--indigo)"},
+ {name:"Content creation", level:"Independent user", pct:66, color:"var(--blue)"},
+ {name:"Safety", level:"Basic user", pct:33, color:"var(--amber)"},
+ {name:"Problem solving", level:"Proficient user", pct:100, color:"var(--indigo)"},
+];
+
+const chipProgrammingData = ["C","C++","Fortran","Java","Julia","MATLAB","MPI","Octave","PVM","Python","VB"];
+const chipToolsData = ["ChangePoint","EPF","Git","Jenkins","Jira","Mantis","MS Project","Project Server","SVN","Tableau","Wiki"];
+const chipKnowledgeData = ["Angular",".NET / C#","Go","Grails","Groovy","JavaScript","Natural-Adabas","Network Administration","Oracle Forms","PHP","PostgreSQL","Rust","SAP BusinessObjects","Shell Scripts","TCP-IP / HTTP / SNMP / NIS / DNS"];
+const chipInterestsData = ["Business Process","Data Science &amp; Machine Learning","Quantum Computing","Theory of Computation"];
+
+/* Career Gantt data: category + start/end year, used for the interactive timeline */
+const ganttData = [
+ {cat:"education", org:"UECE — Bachelor's in Computer Science", start:1991, end:1994},
+ {cat:"education", org:"UFC — MSc in Computer Science", start:1998, end:2002},
+ {cat:"education", org:"UFC — DSc in Tele-informatics Engineering (Quantum Computing)", start:2005, end:2008},
+ {cat:"industry", org:"UECE — Network Administrator", start:1993, end:1995},
+ {cat:"industry", org:"SoftBook — Developer", start:1995, end:1996},
+ {cat:"industry", org:"CENAPAD-UFC — HPC Technical Manager", start:1996, end:1999},
+ {cat:"industry", org:"Atlantico Institute — Computer Systems Analyst", start:2002, end:2005},
+ {cat:"industry", org:"Atlantico Institute — R&D Department Manager", start:2004, end:2005},
+ {cat:"industry", org:"SEFAZ-CE — Government Resource Planning Team Leader", start:2008, end:2015},
+ {cat:"industry", org:"SEFAZ-CE — Data Services Department Manager", start:2016, end:2017},
+ {cat:"industry", org:"SEFAZ-CE — Development Unit Manager", start:2017, end:2019},
+ {cat:"industry", org:"Algonquin College — Academic Professor", start:2019, end:2026},
+ {cat:"teaching", org:"UFC — Undergraduate Lecturer", start:2000, end:2001},
+ {cat:"teaching", org:"Uni7 &amp; UVA — Undergraduate Lecturer (evenings)", start:2001, end:2010},
+ {cat:"teaching", org:"FIC — Lecturer &amp; Advisor (evenings)", start:2005, end:2008},
+ {cat:"teaching", org:"UNIFOR — JEE Architecture Course (evenings)", start:2009, end:2011},
+ {cat:"teaching", org:"FBUni — Lecturer &amp; Advisor (evenings)", start:2011, end:2019},
+ {cat:"teaching", org:"MPCOMP — Lecturer &amp; Advisor (evenings)", start:2012, end:2015},
+ {cat:"teaching", org:"FAMETRO — Lecturer &amp; Advisor (evenings)", start:2012, end:2015},
+];
+const ganttCategories = {
+  education:{ label:"Education", color:"var(--amber)" },
+  industry:{ label:"Industry &amp; Government", color:"var(--blue)" },
+  teaching:{ label:"Teaching (evenings)", color:"var(--violet)" },
+};
+
+/* =========================================================
+   RENDER HELPERS
+========================================================= */
+function el(tag, cls, html){ const e=document.createElement(tag); if(cls) e.className=cls; if(html!==undefined) e.innerHTML=html; return e; }
+
+/* org name -> link, if a URL is known */
+function orgHtml(name, url){
+  return url ? `<a class="org-link" href="${url}" target="_blank" rel="noopener">${name}</a>` : name;
+}
+/* jump to the career timeline and select a given year — used by every
+   clickable year badge across Work/Teaching/Education/Awards/Courses */
+function scrollToTimelineAndSelect(year){
+  if(typeof selectGanttYear === 'function') selectGanttYear(year);
+  const box = document.getElementById('ganttChart');
+  if(box && box.scrollIntoView) box.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+/* work / teaching entry cards */
+function renderWork(containerId, data, withBullets){
+  const c = document.getElementById(containerId);
+  data.forEach((w,i)=>{
+    const card = el('div','entry-card reveal');
+    card.id = 'work-'+i;
+    let bulletsHtml = '';
+    if(withBullets && w.bullets){
+      bulletsHtml = '<ul>' + w.bullets.map(b=>`<li>${b}</li>`).join('') + '</ul>';
+    }
+    card.innerHTML = `<div class="entry-head"><h3>${w.role}</h3><span class="tag year-clickable" title="Jump to this year on the career timeline">${w.tag}</span></div>
+      <div class="entry-org">${orgHtml(w.org, w.orgUrl)}</div>
+      <div class="entry-body">${bulletsHtml}${w.sector?`<span class="entry-sector">Sector: ${w.sector}</span>`:''}</div>`;
+    const tagEl = card.querySelector('.tag');
+    if(tagEl && w.startYear) tagEl.addEventListener('click', ()=> scrollToTimelineAndSelect(w.startYear));
+    c.appendChild(card);
+  });
+}
+renderWork('workContainer', workData, true);
+
+const teachingContainer = document.getElementById('teachingContainer');
+teachingData.forEach(t=>{
+  const card = el('div','entry-card reveal');
+  card.innerHTML = `<div class="entry-head"><h3>${t.role}</h3><span class="tag year-clickable" title="Jump to this year on the career timeline">${t.tag}</span></div>
+   <div class="entry-org">${orgHtml(t.org, t.orgUrl)}</div>
+   <div class="entry-body"><p style="margin:0;"><strong style="color:var(--text-muted)">Subjects:</strong> ${t.subjects}</p></div>`;
+  const tagEl = card.querySelector('.tag');
+  if(tagEl && t.startYear) tagEl.addEventListener('click', ()=> scrollToTimelineAndSelect(t.startYear));
+  teachingContainer.appendChild(card);
+});
+
+const advisingGrid = document.getElementById('advisingGrid');
+advisingData.forEach(a=>{
+  const card = el('div','stat-card reveal');
+  card.innerHTML = `<div class="s-num">${a.num}</div><div class="s-label">${a.label}</div>`;
+  advisingGrid.appendChild(card);
+});
+
+const educationContainer = document.getElementById('educationContainer');
+educationData.forEach(e=>{
+  const card = el('div','entry-card reveal');
+  card.innerHTML = `<div class="entry-head"><h3>${e.degree}${e.highlight?' <span class="idx-badge" style="border-color:var(--rose-dim); color:var(--rose);">quantum computing</span>':''}</h3><span class="tag year-clickable" title="Jump to this year on the career timeline">${e.tag}</span></div>
+   <div class="entry-org">${orgHtml(e.org, e.orgUrl)} &nbsp;·&nbsp; Final grade ${e.grade}</div>
+   <div class="entry-body"><p style="margin:0;">${e.detail}</p></div>`;
+  const tagEl = card.querySelector('.tag');
+  if(tagEl && e.startYear) tagEl.addEventListener('click', ()=> scrollToTimelineAndSelect(e.startYear));
+  educationContainer.appendChild(card);
+});
+
+const awardsContainer = document.getElementById('awardsContainer');
+awardsData.forEach(a=>{
+  const card = el('div','entry-card reveal');
+  card.innerHTML = `<div class="entry-head"><h3>${a.name}</h3></div>
+   <div class="entry-org year-clickable" style="color:${a.color}" title="Jump to this year on the career timeline">${a.where}</div>
+   <div class="entry-body"><p style="margin:0;">${a.detail}</p>${a.url?`<p style="margin-top:0.7em;"><a class="card-link" href="${a.url}" target="_blank" rel="noopener">view award announcement →</a></p>`:''}</div>`;
+  const orgEl = card.querySelector('.entry-org');
+  if(orgEl && a.year) orgEl.addEventListener('click', ()=> scrollToTimelineAndSelect(a.year));
+  awardsContainer.appendChild(card);
+});
+
+/* publications table */
+const publicationsContainer = document.getElementById('publicationsContainer');
+if(publicationsContainer){
+  publicationsData.forEach(p=>{
+    const card = el('div','entry-card reveal');
+    card.innerHTML = `<div class="entry-head"><h3 style="font-size:1.02rem;">${p.title}</h3><span class="tag year-clickable" title="Jump to this year on the career timeline">${p.year}</span></div>
+     <div class="entry-org">${p.pub} · ${p.publisher}</div>`;
+    const tagEl = card.querySelector('.tag');
+    if(tagEl) tagEl.addEventListener('click', ()=> scrollToTimelineAndSelect(p.year));
+    publicationsContainer.appendChild(card);
+  });
+}
+
+/* personal information block */
+const personalInfoBlock = document.getElementById('personalInfoBlock');
+if(personalInfoBlock){
+  const rows = personalInfoData.map(p=>{
+    const value = p.link ? `<a href="${p.link}" target="_blank" rel="noopener">${p.value}</a>` : p.value;
+    return `<dt>${p.label}</dt><dd>${value}</dd>`;
+  }).join('');
+  personalInfoBlock.innerHTML = `<dl class="pinfo-grid">${rows}</dl>`;
+}
+
+/* generic topic-grid renderer for certification cards */
+function renderTopicGrid(containerId, data){
+  const grid = document.getElementById(containerId);
+  data.forEach(h=>{
+    const card = el('div','topic-card reveal');
+    card.innerHTML = `<h4><span class="plat-dot" style="background:${h.color}"></span>${h.name}</h4>
+     <div class="stat"><span>${h.s1[0]}</span><b>${h.s1[1]}</b></div>
+     <div class="stat"><span>${h.s2[0]}</span><b>${h.s2[1]}</b></div>
+     <p>${h.p}</p>
+     ${h.url?`<p style="margin-top:0.7em;"><a class="card-link" href="${h.url}" target="_blank" rel="noopener">view credential →</a></p>`:''}`;
+    grid.appendChild(card);
+  });
+}
+renderTopicGrid('certProfessionalGrid', certProfessional);
+renderTopicGrid('certDataScienceGrid', certDataScience);
+renderTopicGrid('certQuantumGrid', certQuantum);
+renderTopicGrid('certAIGrid', certAI);
+
+/* course table — each year cell jumps to that year on the timeline */
+const courseTableBody = document.getElementById('courseTableBody');
+courseTableData.forEach(row=>{
+  const tr = el('tr','', `<td class="tag year-clickable" title="Jump to this year on the career timeline">${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td>`);
+  const yearCell = tr.querySelector('td');
+  const yr = parseInt(row[0],10);
+  if(yearCell) yearCell.addEventListener('click', ()=> scrollToTimelineAndSelect(yr));
+  courseTableBody.appendChild(tr);
+});
+
+/* languages */
+const languagesContainer = document.getElementById('languagesContainer');
+const motherTongue = el('div','lang-block');
+motherTongue.innerHTML = `<h4>Mother tongue</h4><div class="lang-row"><span>Portuguese</span><div></div><span class="lvl">native</span></div>`;
+languagesContainer.appendChild(motherTongue);
+languagesData.forEach(lang=>{
+  const block = el('div','lang-block');
+  let rowsHtml = '';
+  Object.keys(lang.levels).forEach(skill=>{
+    const cefr = lang.levels[skill];
+    const pct = (CEFR_SCALE[cefr]/6*100).toFixed(0);
+    rowsHtml += `<div class="lang-row"><span>${skill}</span><div class="lang-bar-track"><div class="lang-bar-fill" data-pct="${pct}"></div></div><span class="lvl">${cefr}</span></div>`;
+  });
+  block.innerHTML = `<h4>${lang.name}${lang.ielts?` <span style="font-family:var(--mono); font-size:0.7rem; color:var(--text-dim);">— ${lang.ielts}</span>`:''}</h4>${rowsHtml}`;
+  languagesContainer.appendChild(block);
+});
+
+/* digital skills meters */
+const digitalSkillsContainer = document.getElementById('digitalSkillsContainer');
+digitalSkillsData.forEach(s=>{
+  const row = el('div','meter-row');
+  row.innerHTML = `<span>${s.name}</span><div class="meter-track"><div class="meter-fill" data-pct="${s.pct}" style="background:${s.color}"></div></div><span class="lvl">${s.level}</span>`;
+  digitalSkillsContainer.appendChild(row);
+});
+
+/* chip clouds */
+function renderChips(containerId, data){
+  const box = document.getElementById(containerId);
+  box.innerHTML = data.map(t=>`<span>${t}</span>`).join('');
+}
+renderChips('chipProgramming', chipProgrammingData);
+renderChips('chipTools', chipToolsData);
+renderChips('chipKnowledge', chipKnowledgeData);
+renderChips('chipInterests', chipInterestsData);
+
+/* =========================================================
+   CAREER GANTT / SCRUBBER TIMELINE
+========================================================= */
+const GANTT_W = 900, GANTT_ROW_H = 22, GANTT_ROW_GAP = 4, GANTT_MARGIN_L = 210, GANTT_MARGIN_R = 30, GANTT_TOP = 34, GANTT_BOTTOM = 34;
+const GANTT_MIN_YEAR = 1991, GANTT_MAX_YEAR = 2026;
+const catOrder = ['education','industry','teaching'];
+const ganttRows = [];
+catOrder.forEach(cat=>{
+  ganttData.filter(g=>g.cat===cat).sort((a,b)=>a.start-b.start).forEach(g=> ganttRows.push(g));
+});
+const GANTT_H = GANTT_TOP + GANTT_BOTTOM + ganttRows.length*(GANTT_ROW_H+GANTT_ROW_GAP);
+const ganttPlotW = GANTT_W - GANTT_MARGIN_L - GANTT_MARGIN_R;
+const ganttYearToX = (yr)=> GANTT_MARGIN_L + (yr-GANTT_MIN_YEAR)/(GANTT_MAX_YEAR-GANTT_MIN_YEAR)*ganttPlotW;
+
+function buildGanttChart(){
+  let bars = '';
+  let catLabels = '';
+  let lastCat = null;
+  ganttRows.forEach((g,i)=>{
+    const y = GANTT_TOP + i*(GANTT_ROW_H+GANTT_ROW_GAP);
+    const x1 = ganttYearToX(g.start), x2 = ganttYearToX(g.end);
+    const color = ganttCategories[g.cat].color;
+    if(g.cat !== lastCat){
+      catLabels += `<text x="8" y="${y+14}" fill="${color}" font-size="10" font-family="monospace" font-weight="bold">${ganttCategories[g.cat].label.toUpperCase()}</text>`;
+      lastCat = g.cat;
+    }
+    bars += `<rect class="g-bar" data-idx="${i}" x="${x1.toFixed(1)}" y="${y}" width="${Math.max(4,x2-x1).toFixed(1)}" height="${GANTT_ROW_H-4}" rx="4" fill="${color}" opacity="0.85"><title>${g.org} (${g.start}–${g.end===2026?'present':g.end})</title></rect>`;
+    bars += `<text x="${(x2+8).toFixed(1)}" y="${(y+GANTT_ROW_H-8).toFixed(1)}" fill="var(--text-dim)" font-size="9" font-family="monospace" opacity="0.001">${g.org}</text>`;
+  });
+  let ticks = '';
+  for(let yr=1992; yr<=2024; yr+=4){
+    const x = ganttYearToX(yr);
+    ticks += `<line x1="${x.toFixed(1)}" y1="${GANTT_TOP-6}" x2="${x.toFixed(1)}" y2="${GANTT_H-GANTT_BOTTOM+4}" stroke="var(--line)" stroke-dasharray="2 3"/><text x="${x.toFixed(1)}" y="${GANTT_H-GANTT_BOTTOM+18}" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="monospace">${yr}</text>`;
+  }
+  const xToday = ganttYearToX(2026);
+  ticks += `<line x1="${xToday.toFixed(1)}" y1="${GANTT_TOP-6}" x2="${xToday.toFixed(1)}" y2="${GANTT_H-GANTT_BOTTOM+4}" stroke="var(--amber)" stroke-width="1.2"/><text x="${xToday.toFixed(1)}" y="${GANTT_H-GANTT_BOTTOM+18}" text-anchor="middle" fill="var(--amber)" font-size="10" font-family="monospace">2026</text>`;
+
+  return `<svg class="gantt-chart" viewBox="0 0 ${GANTT_W} ${GANTT_H}" xmlns="http://www.w3.org/2000/svg">
+    ${ticks}
+    ${catLabels}
+    ${bars}
+    <line class="g-playhead" x1="0" y1="${GANTT_TOP-10}" x2="0" y2="${GANTT_H-GANTT_BOTTOM+8}" stroke="var(--text)" stroke-width="1.5" opacity="0"/>
+  </svg>`;
+}
+
+let ganttSelectedYear = null;
+function ordinalRange(g){ return g.end>=2026 ? `${g.start}–present` : `${g.start}–${g.end}`; }
+function selectGanttYear(year, opts){
+  opts = opts || {};
+  year = Math.max(GANTT_MIN_YEAR, Math.min(GANTT_MAX_YEAR, Math.round(year)));
+  ganttSelectedYear = year;
+  const box = document.getElementById('ganttChart');
+  if(!box) return;
+  const svgEl = box.querySelector('.gantt-chart');
+  const playhead = box.querySelector('.g-playhead');
+  const x = ganttYearToX(year);
+  if(playhead){ playhead.setAttribute('x1', x); playhead.setAttribute('x2', x); playhead.setAttribute('opacity','0.7'); }
+
+  const active = ganttRows.map((g,i)=>({g,i})).filter(({g})=> year >= g.start && year <= g.end);
+  box.querySelectorAll('.g-bar').forEach(bar=>{
+    const idx = parseInt(bar.getAttribute('data-idx'),10);
+    bar.classList.toggle('active', active.some(a=>a.i===idx));
+  });
+
+  const readout = document.getElementById('ganttReadout');
+  if(readout){
+    if(active.length === 0){
+      readout.innerHTML = `<b>${year}</b> — no recorded role this exact year.`;
+    } else {
+      const byCat = {education:[], industry:[], teaching:[]};
+      active.forEach(({g})=> byCat[g.cat].push(g.org));
+      let parts = [];
+      if(byCat.industry.length) parts.push(`<b>Working:</b> ${byCat.industry.join('; ')}`);
+      if(byCat.teaching.length) parts.push(`<b>Teaching:</b> ${byCat.teaching.join('; ')}`);
+      if(byCat.education.length) parts.push(`<b>Studying:</b> ${byCat.education.join('; ')}`);
+      readout.innerHTML = `<b>${year}</b> — ` + parts.join(' &nbsp;·&nbsp; ');
+    }
+  }
+
+  if(opts.scrollWork && active.length){
+    const workIdx = workData.findIndex(w=>{
+      const startYr = parseInt((w.tag.match(/\d{4}/)||[0])[0],10);
+      return year >= startYr;
+    });
+  }
+}
+
+const ganttChartBox = document.getElementById('ganttChart');
+if(ganttChartBox){
+  ganttChartBox.innerHTML = buildGanttChart();
+  const svgEl = ganttChartBox.querySelector('.gantt-chart');
+
+  let dragging = false;
+  function yearFromEvent(ev){
+    const rect = svgEl.getBoundingClientRect();
+    const relX = (ev.clientX - rect.left) / rect.width;
+    const svgX = relX * GANTT_W;
+    return GANTT_MIN_YEAR + (svgX - GANTT_MARGIN_L)/ganttPlotW * (GANTT_MAX_YEAR-GANTT_MIN_YEAR);
+  }
+  svgEl.addEventListener('pointerdown', (ev)=>{ dragging = true; selectGanttYear(yearFromEvent(ev)); });
+  svgEl.addEventListener('pointermove', (ev)=>{ if(dragging) selectGanttYear(yearFromEvent(ev)); });
+  window.addEventListener('pointerup', ()=>{ dragging = false; });
+  svgEl.addEventListener('pointerleave', ()=>{ dragging = false; });
+
+  ganttChartBox.querySelectorAll('.g-bar').forEach(bar=>{
+    bar.addEventListener('click', (ev)=>{
+      ev.stopPropagation();
+      const idx = parseInt(bar.getAttribute('data-idx'),10);
+      selectGanttYear(ganttRows[idx].start);
+    });
+  });
+
+  selectGanttYear(2019);
+
+  const legend = document.getElementById('ganttLegend');
+  Object.values(ganttCategories).forEach(cat=>{
+    const item = el('div','', `<span class="gantt-legend-swatch" style="background:${cat.color}"></span>${cat.label}`);
+    item.style.display = 'flex'; item.style.alignItems = 'center';
+    legend.appendChild(item);
+  });
+
+  const playBtn = document.getElementById('ganttPlayBtn');
+  const resetBtn = document.getElementById('ganttResetBtn');
+  let playing = false, playTimer = null;
+  function stopPlay(){ playing = false; if(playTimer){ clearInterval(playTimer); playTimer=null; } playBtn.textContent = '▶ Play the record'; }
+  function startPlay(){
+    playing = true; playBtn.textContent = '❙❙ Pause';
+    let y = GANTT_MIN_YEAR;
+    selectGanttYear(y);
+    playTimer = setInterval(()=>{
+      y++;
+      if(y > GANTT_MAX_YEAR){ stopPlay(); return; }
+      selectGanttYear(y);
+    }, 420);
+  }
+  playBtn.addEventListener('click', ()=>{ if(playing) stopPlay(); else startPlay(); });
+  resetBtn.addEventListener('click', ()=>{ stopPlay(); selectGanttYear(GANTT_MIN_YEAR); });
+}
+
+/* =========================================================
+   ANIMATE BARS (language + digital skills) ON SCROLL REVEAL
+========================================================= */
+const barObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      en.target.querySelectorAll('.lang-bar-fill, .meter-fill').forEach(bar=>{
+        bar.style.width = bar.getAttribute('data-pct') + '%';
+      });
+      barObserver.unobserve(en.target);
+    }
+  });
+}, {threshold:0.2});
+const langBlock = document.getElementById('languagesContainer');
+if(langBlock) barObserver.observe(langBlock);
+const digitalBlock = document.getElementById('digitalSkillsContainer');
+if(digitalBlock) barObserver.observe(digitalBlock);
+
+/* =========================================================
+   SCROLL REVEAL + SCROLLSPY
+========================================================= */
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('visible'); revealObserver.unobserve(en.target); } });
+}, {threshold:0.12});
+document.querySelectorAll('.reveal').forEach(elm=>revealObserver.observe(elm));
+
+const sectionIds = ['hero','about','work','academic','education','certifications','awards','publications','languages','skills','references'];
+const sections = sectionIds.map(id=>document.getElementById(id)).filter(Boolean);
+const subIds = ['sec-1-1','sec-1-2','sec-1-3','sec-3-1','sec-3-2','sec-5-1','sec-5-2','sec-5-3','sec-5-4','sec-5-5','sec-8-1','sec-8-2','sec-8-3'];
+const subEls = subIds.map(id=>document.getElementById(id)).filter(Boolean);
+const sidenav = document.getElementById('sidenav');
+const sidenavScroll = sidenav.querySelector('.sn-scroll');
+const sidenavMainLinks = sidenav.querySelectorAll('a.sn-main');
+const sidenavSubLinks = sidenav.querySelectorAll('a.sn-sub');
+const topnavLinks = document.querySelectorAll('#topnavLinks a');
+let lastActiveSub = null;
+function onScroll(){
+  sidenav.classList.add('show');
+  let current = sections[0].id;
+  sections.forEach(s=>{ if(window.scrollY + window.innerHeight*0.4 >= s.offsetTop) current = s.id; });
+  sidenavMainLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href')==='#'+current));
+  topnavLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href')==='#'+current));
+
+  let currentSub = subEls.length ? subEls[0].id : null;
+  subEls.forEach(s=>{ if(window.scrollY + window.innerHeight*0.4 >= s.offsetTop) currentSub = s.id; });
+  sidenavSubLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href')==='#'+currentSub));
+
+  if(currentSub !== lastActiveSub){
+    lastActiveSub = currentSub;
+    const activeLink = sidenav.querySelector(`a.sn-sub[href="#${currentSub}"]`);
+    if(activeLink && sidenavScroll){
+      const linkTop = activeLink.offsetTop, linkBottom = linkTop + activeLink.offsetHeight;
+      const viewTop = sidenavScroll.scrollTop, viewBottom = viewTop + sidenavScroll.clientHeight;
+      if(linkTop < viewTop || linkBottom > viewBottom){
+        sidenavScroll.scrollTo({ top: linkTop - sidenavScroll.clientHeight/2, behavior:'smooth' });
+      }
+    }
+  }
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+/* mobile nav toggle */
+const navToggle = document.getElementById('navToggle');
+const topnavLinksEl = document.getElementById('topnavLinks');
+navToggle.addEventListener('click', ()=>{
+  const showing = topnavLinksEl.style.display === 'flex';
+  topnavLinksEl.style.cssText = showing ? '' : 'display:flex; position:fixed; top:60px; left:0; right:0; background:var(--topbar-bg-solid); flex-direction:column; padding:1.2rem 1.5rem; gap:1rem; border-bottom:1px solid var(--line); max-height:80vh; overflow-y:auto;';
+});
+function handleResize(){
+  if(window.innerWidth <= 900){ navToggle.style.display='block'; topnavLinksEl.style.display='none'; }
+  else{ navToggle.style.display='none'; topnavLinksEl.style.cssText=''; }
+}
+window.addEventListener('resize', handleResize);
+handleResize();
+
+/* =========================================================
+   LIGHT / DARK MODE TOGGLE
+========================================================= */
+(function(){
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  function syncIcon(){
+    const theme = root.getAttribute('data-theme') || 'dark';
+    btn.textContent = theme === 'light' ? '☀️' : '🌙';
+    btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+  }
+  syncIcon();
+  btn.addEventListener('click', ()=>{
+    const current = root.getAttribute('data-theme') || 'dark';
+    const next = current === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('ps-theme', next); }catch(e){}
+    syncIcon();
+  });
+})();
+</script>
+
+<center>
+	<a href="https://sites.google.com/view/paulobmsousa/home" target="_blank">
+		<img src="images/perfillinkedin.jpg">
+	</a>
+</center>
+<p style="text-align:center;">
+	<a href="https://paulobmsousa.github.io/techblog/" target="_top">
+	<img src="images/devcorner1min.jpg">
+	<br>	
+		GitHub Blog
+	</br>
+	</a>
+</p>
+<p style="text-align:center;">
+	Contact: 
+	<a href="mailto:paulo.benicio@gmail.com?Subject=Hello%20From%20GitHub" target="_top">
+		paulo.benicio@gmail.com
+	</a>
+</p>
+
+</body>
 </html>
