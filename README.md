@@ -1,0 +1,37 @@
+ORIGINAL PAGE:
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<body>
+		<!--
+		https://github.com/paulobmsousa/paulobmsousa.github.io
+		-->
+		<h1 style="text-align:center;">
+			Wellcome to my GitHub Homepage
+		</h1>
+		<p style="text-align:center;">
+			User Id: <b>paulobmsousa</b>
+		</p>
+		<center>
+			<a href="https://sites.google.com/view/paulobmsousa/home" target="_blank">
+				<img src="images/perfillinkedin.jpg">
+			</a>
+		</center>
+		<p style="text-align:center;">
+			<a href="https://paulobmsousa.github.io/techblog/" target="_top">
+			<img src="images/devcorner1min.jpg">
+			<br>	
+				GitHub Blog
+			</br>
+			</a>
+		</p>
+		<p style="text-align:center;">
+			Contact: 
+			<a href="mailto:paulo.benicio@gmail.com?Subject=Hello%20From%20GitHub" target="_top">
+				paulo.benicio@gmail.com
+			</a>
+		</p>
+	</body>
+</html>
